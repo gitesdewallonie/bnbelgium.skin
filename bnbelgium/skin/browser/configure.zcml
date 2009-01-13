@@ -1,158 +1,30 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:grok="http://namespaces.zope.org/grok"
-    i18n_domain="gites">
-
-    <grok:grok package="bnbelgium.skin.browser.sejourfute"/>
-    <grok:grok package="bnbelgium.skin.browser.ideesejour"/>
-    <grok:grok package="bnbelgium.skin.browser.ideesejourfolder"/>
-    <grok:grok package="bnbelgium.skin.browser.derniereminute"/>
+    i18n_domain="bnbelgium.skin">
 
     <!-- 'BNBelgium Skin' Zope 3 browser layer -->
     <interface
-        interface=".interfaces.IBNBelgiumTheme"
+        interface=".interfaces.IThemeSpecific"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
         name="BNBelgium Skin"
         />
 
-    <!-- Customize the navigation portlet -->
-    <plone:portletRenderer
-           portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
-           layer=".interfaces.IBNBelgiumTheme"
-           class=".navigation.MyNavRenderer"
-            />
+    <!-- Viewlets registration -->
+    <!-- Zope 3 browser resources -->
 
-    <browser:page
-        for="*"
-        name="bnb_homepage"
-        class=".homepage.Homepage"
-        permission="zope.Public"
-        template="templates/bnb_homepage.pt"
+    <!-- Resource directory for images -->
+    <browser:resourceDirectory
+        name="bnbelgium.skin.images"
+        directory="images"
+        layer=".interfaces.IThemeSpecific"
         />
 
-    <browser:page
-        for="*"
-        name="getTranslatedObjectUrl"
-        layer=".interfaces.IBNBelgiumTheme"
-        attribute="getTranslatedObjectUrl"
-        class=".translations.Translate"
-        permission="zope.Public"
+    <!-- Resource directory for stylesheets -->
+    <browser:resourceDirectory
+        name="bnbelgium.skin.stylesheets"
+        directory="stylesheets"
+        layer=".interfaces.IThemeSpecific"
         />
-
-    <browser:page
-        for="*"
-        name="addInterface"
-        class=".migration.Migration"
-        permission="zope.Public"
-        />
-
-    <browser:page
-        for="*"
-        name="moteur_recherche_view"
-        class=".moteur_recherche.BNBMoteurRecherche"
-        layer=".interfaces.IBNBelgiumTheme"
-        allowed_interface=".interfaces.IMoteurRecherche"
-        permission="zope.Public"
-        />
-
-    <browser:page
-      for="*"
-      name="search.html"
-      layer=".interfaces.IBNBelgiumTheme"
-      class=".SearchHebergement.BNBSearchHebergement"
-      permission="zope.Public"
-      />
-
-    <!-- Homepage :: viewletmanger de la homepage pour les viewlet de promo-->
-    <browser:viewletManager
-        name="BNBelgium.promoOutil"
-        provides=".interfaces.IPromoOutil"
-        permission="zope2.View"
-        class="plone.app.viewletmanager.manager.OrderedViewletManager"
-        />
-
-    <!-- Homepage :: viewletmanger de la homepage pour placer le selecteur de langue 
-         dans le sommet de colonne de gauche -->
-    <browser:viewletManager
-        name="BNBelgium.selectorLanguagesLeftColumn"
-        provides=".interfaces.ISelectorLanguagesLeftColumn"
-        permission="zope2.View"
-        class="plone.app.viewletmanager.manager.OrderedViewletManager"
-        />
-
-
-    <!-- Home page :: header with flash animation viewlet -->
-    <browser:viewlet
-        name="BNBelgium.header"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-        class=".viewlets.BNBelgiumHeaderViewlet"
-        layer=".interfaces.IBNBelgiumTheme"
-        permission="zope.Public"
-        />
-
-    <!-- Home page :: menu supêrieur -->
-    <browser:viewlet
-        name="BNBelgium.menuSup"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-        class=".viewlets.BNBMenuSupViewlet"
-        layer=".interfaces.IBNBelgiumTheme"
-        permission="zope.Public"
-        />
-
-    <!-- Home page :: moteur de recerche viewlet -->
-    <browser:viewlet
-        name="BNBelgium.serachEngine"
-        manager=".interfaces.IPromoOutil"
-        class=".viewlets.BNBMoteurRechercheViewlet"
-        layer=".interfaces.IBNBelgiumTheme"
-        permission="zope.Public"
-        />
-
-    <!-- Home page :: box pour outils de promotion :
-         sejour fute - derniere minute - idee sejour -  boutique -->
-    <browser:viewlet
-        name="BNBelgium.promoBox"
-        manager=".interfaces.IPromoOutil"
-        class=".viewlets.BNBOutilsPromoViewlet"
-        layer=".interfaces.IBNBelgiumTheme"
-        permission="zope.Public"
-        />
-
-    <!-- Home page :: footer viewlet -->
-    <browser:viewlet
-        name="BNBelgium.footer"
-        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-        class=".viewlets.BNBelgiumFooterViewlet"
-        layer=".interfaces.IBNBelgiumTheme"
-        permission="zope.Public"
-        />
-
-    <!-- Selecteur de langue -->
-    <browser:viewlet
-          name="BNBelgium.languageselector"
-          manager=".interfaces.ISelectorLanguagesLeftColumn"
-          class=".viewlets.BNBTranslatableLanguageSelector"
-          permission="zope.Public"
-          layer=".interfaces.IBNBelgiumTheme"
-          />
-
-    <adapter
-      factory=".portletmanager.BNBPortletManagerRenderer"
-      provides="plone.portlets.interfaces.IPortletManagerRenderer"
-      />
-
-    <utility
-      name="bnbelgium.communes"
-      component=".vocabulary.CommunesVocabularyFactory"/>
-
-    <utility
-      name="bnbelgium.tarif"
-      component=".vocabulary.TarifsVocabularyFactory"/>
-
-    <utility
-      name="bnbelgium.classification"
-      component=".vocabulary.ClassificationsVocabularyFactory"/>
 
 </configure>

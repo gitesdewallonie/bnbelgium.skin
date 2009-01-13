@@ -1,20 +1,14 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:five="http://namespaces.zope.org/five"
-    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:cmf="http://namespaces.zope.org/cmf"
-    i18n_domain="gites">
+    i18n_domain="bnbelgium.skin">
 
    <five:registerPackage package="." initialize=".initialize" />
-   <include package="plone.app.portlets" />
+
    <include package=".browser" />
-   <include package=".flash" />
-   <include package=".portlets" />
+
    <include file="skins.zcml" />
    <include file="profiles.zcml" />
-
-   <include package="z3c.jbot" file="meta.zcml" />
-   <browser:templateOverrides directory="skins/bnbelgium_templates" />
 
 </configure>

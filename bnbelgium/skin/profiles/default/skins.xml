@@ -1,29 +1,24 @@
 <?xml version="1.0"?>
-<object name="portal_skins" 
-        allow_any="False" 
-        cookie_persistence="False">
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="BNBelgium Skin">
 
- <object name="bnbelgium_images"
-         meta_type="Filesystem Directory View"
-         directory="bnbelgium.skin:skins/bnbelgium_images"/>
- <object name="bnbelgium_templates"
-         meta_type="Filesystem Directory View"
-         directory="bnbelgium.skin:skins/bnbelgium_templates"/>
- <object name="bnbelgium_styles"
-         meta_type="Filesystem Directory View"
-         directory="bnbelgium.skin:skins/bnbelgium_styles"/>
+ <object name="bnbelgium_skin_custom_images"
+    meta_type="Filesystem Directory View"
+    directory="bnbelgium.skin:skins/bnbelgium_skin_custom_images"/>
+ <object name="bnbelgium_skin_custom_templates"
+    meta_type="Filesystem Directory View"
+    directory="bnbelgium.skin:skins/bnbelgium_skin_custom_templates"/>
+ <object name="bnbelgium_skin_styles"
+    meta_type="Filesystem Directory View"
+    directory="bnbelgium.skin:skins/bnbelgium_skin_styles"/>
 
  <skin-path name="BNBelgium Skin" based-on="Plone Default">
-  <layer name="bnbelgium_images"
-         insert-after="custom"/>
-  <layer name="bnbelgium_templates"
-         insert-after="bnbelgium_images"/>
-  <layer name="bnbelgium_styles"
-         insert-after="bnbelgium_templates"/>
-  <layer name="gites_templates"
-         insert-after="bnbelgium_styles"/>
-  <layer name="gites_images"
-         insert-after="gites_templates"/>
+  <layer name="bnbelgium_skin_custom_images"
+     insert-after="custom"/>
+  <layer name="bnbelgium_skin_custom_templates"
+     insert-after="bnbelgium_skin_custom_images"/>
+  <layer name="bnbelgium_skin_styles"
+     insert-after="bnbelgium_skin_custom_templates"/>
  </skin-path>
 
 </object>
