@@ -6,8 +6,34 @@
  */
 
 body{
-    background-color:#F00;
+    background-color:#16223f;
 }
+
+/*** PO⌕TAL-TOP ***/
+#portal-top {
+    background-color:transparent;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0;
+    width:950px !important;
+}
+
+
+/*** GLOBAL NAV (les onglets) ***/
+#portal-globalnav {
+    background-color:transparent;
+    height:auto;
+    line-height:normal;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    padding:0 0 0 2em;
+    white-space:nowrap;
+    width:950px !important;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 
 
 
@@ -25,7 +51,22 @@ body{
     padding:0 3em;
     text-align:right;
     text-transform:none;
+    width:950px !important;
+    margin-left:auto;
+    margin-right:auto;
 }
+
+#portal-breadcrumbs {
+    border-bottom:1px solid #8CACBB;
+    line-height:1.6em;
+    padding-left:2em;
+    padding-right:2em;
+    text-transform:none;
+    margin-left:auto;
+    margin-right:auto;
+    width:950px !important;
+}
+
 
 
 
@@ -34,6 +75,23 @@ body{
     border-collapse:collapse;
     border-spacing:0;
     width:950px !important;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 
+
+/*** PORTAL FOOTER ***/
+#portal-footer {
+    background-color:#DEE7EC;
+    border-bottom:1px solid #8CACBB;
+    border-top:1px solid #8CACBB;
+    float:none;
+    line-height:1.2em;
+    margin-top:2em;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0.5em 0 1em;
+    text-align:center;
+    width:950px !important;
+}
