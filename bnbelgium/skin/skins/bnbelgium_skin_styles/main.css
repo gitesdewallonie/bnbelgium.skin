@@ -1,0 +1,39 @@
+/*
+ *  BNBelgium Plone chambres Gites de Wallonie
+ *
+ *  Affinitic 2009
+ *
+ */
+
+body{
+    background-color:#F00;
+}
+
+
+
+/*** PERSONAL TOOLBAR ***/
+#portal-personaltools {
+    background-color:#171a34;
+    border-bottom:1px solid #8CACBB;
+    border-top:1px solid #8CACBB;
+    color:Black;
+    line-height:1.6em;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    margin:0;
+    padding:0 3em;
+    text-align:right;
+    text-transform:none;
+}
+
+
+
+/*** MAIN TABLEAU ***/
+#portal-columns {
+    border-collapse:collapse;
+    border-spacing:0;
+    width:950px !important;
+}
+
+

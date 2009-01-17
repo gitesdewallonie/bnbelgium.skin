@@ -3,22 +3,22 @@
    default_skin="BNBelgium Skin">
 
  <object name="bnbelgium_skin_custom_images"
-    meta_type="Filesystem Directory View"
-    directory="bnbelgium.skin:skins/bnbelgium_skin_custom_images"/>
+         meta_type="Filesystem Directory View"
+         directory="bnbelgium.skin:skins/bnbelgium_skin_custom_images"/>
  <object name="bnbelgium_skin_custom_templates"
-    meta_type="Filesystem Directory View"
-    directory="bnbelgium.skin:skins/bnbelgium_skin_custom_templates"/>
+         meta_type="Filesystem Directory View"
+         directory="bnbelgium.skin:skins/bnbelgium_skin_custom_templates"/>
  <object name="bnbelgium_skin_styles"
-    meta_type="Filesystem Directory View"
-    directory="bnbelgium.skin:skins/bnbelgium_skin_styles"/>
+         meta_type="Filesystem Directory View"
+         directory="bnbelgium.skin:skins/bnbelgium_skin_styles"/>
 
  <skin-path name="BNBelgium Skin" based-on="Plone Default">
   <layer name="bnbelgium_skin_custom_images"
-     insert-after="custom"/>
+         insert-after="custom"/>
   <layer name="bnbelgium_skin_custom_templates"
-     insert-after="bnbelgium_skin_custom_images"/>
+         insert-after="bnbelgium_skin_custom_images"/>
   <layer name="bnbelgium_skin_styles"
-     insert-after="bnbelgium_skin_custom_templates"/>
+         insert-after="bnbelgium_skin_custom_templates"/>
  </skin-path>
 
 </object>
