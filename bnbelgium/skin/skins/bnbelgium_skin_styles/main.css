@@ -11,13 +11,20 @@ body{
     background-repeat : repeat-x;
 }
 
-/*** PO⌕TAL-TOP ***/
+/*** PORTAL-TOP ***/
 #portal-top {
     background-color:transparent;
     margin-left:auto;
     margin-right:auto;
     padding:0;
     width:950px !important;
+}
+
+
+/*** HEADER BNBBelgium ***/
+#header-BNBelgium{
+    width:950px !important;
+    text-align:center;
 }
 
 
