@@ -5,7 +5,7 @@
 
     <!-- 'BNBelgium Skin' Zope 3 browser layer -->
     <interface
-        interface=".interfaces.IThemeSpecific"
+        interface=".interfaces.IBNBelgiumTheme"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
         name="BNBelgium Skin"
         />
@@ -17,14 +17,36 @@
     <browser:resourceDirectory
         name="bnbelgium.skin.images"
         directory="images"
-        layer=".interfaces.IThemeSpecific"
+        layer=".interfaces.IBNBelgiumTheme"
         />
 
     <!-- Resource directory for stylesheets -->
     <browser:resourceDirectory
         name="bnbelgium.skin.stylesheets"
         directory="stylesheets"
-        layer=".interfaces.IThemeSpecific"
+        layer=".interfaces.IBNBelgiumTheme"
         />
+
+    <!-- home page avec le tableau des sejours futes, .... -->
+    <!--
+    <browser:view
+      name="homepageView"
+      class=".BNBelgium.HomePageNews"
+      allowed_interface=".interfaces.IHomePageNews"
+      for="*"
+      permission="zope.Public"
+      />
+    -->
+
+    <!-- Home page header with flash animation viewlet -->
+<!--
+    <browser:viewlet
+        name="BNBelgium.header"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.BNBelgiumSectionsViewlet"
+        layer=".interfaces.IBNBelgiumTheme"
+        permission="zope.Public"
+        />
+-->
 
 </configure>
