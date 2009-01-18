@@ -41,6 +41,16 @@
     -->
 
     <!-- Home page header with flash animation viewlet -->
+    <browser:viewlet
+        name="BNBelgium.header"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.BNBelgiumSectionsViewlet"
+        layer=".interfaces.IBNBelgiumTheme"
+        permission="zope.Public"
+        />
+
+
+
 <!--
     <browser:viewlet
         name="BNBelgium.header"
@@ -50,5 +60,6 @@
         permission="zope.Public"
         />
 -->
+
 
 </configure>

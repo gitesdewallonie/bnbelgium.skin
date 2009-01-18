@@ -20,7 +20,7 @@
     </hidden>
 
     <order manager="plone.portalheader" skinname="BNBelgium Skin">
-        <viewlet name="bnb.header"/>
+        <viewlet name="BNBelgium.header"/>
         <viewlet name="plone.personnal_bar"/>
         <viewlet name="plone.path_bar"/>
         <viewlet name="plone.global_sections"/>

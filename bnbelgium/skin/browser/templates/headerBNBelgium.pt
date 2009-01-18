@@ -1,14 +1,8 @@
-<div id="header-clpsbw"
-     tal:define="view context/bannerView;">
-
-  <span tal:define="banner view/getBanner | nothing">
-
-    <img src="bnb_bandeau.png" />
-
+<div id="header-BNBelgium">
+  <img src="bnb_bandeau.png" />
 <!--
       <img tal:condition="banner" src="" tal:replace="structure banner" />
 -->
-
 <!--
       <object tal:condition="not: banner"
               type="application/x-shockwave-flash"
@@ -26,7 +20,5 @@
                value="true" />
       </object>
 -->
-  </span>
-
 </div>
 <!--<div class="visualClear"></div>-->
