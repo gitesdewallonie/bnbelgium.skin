@@ -6,7 +6,9 @@
  */
 
 body{
-    background-color:#16223f;
+    background-color : #16223f;
+    background-image : url(bnb_background.png);
+    background-repeat : repeat-x;
 }
 
 /*** PO⌕TAL-TOP ***/

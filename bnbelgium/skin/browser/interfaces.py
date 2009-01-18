@@ -1,5 +1,13 @@
 from plone.theme.interfaces import IDefaultPloneLayer
+from zope.interface import Interface
 
-class IThemeSpecific(IDefaultPloneLayer):
-    """Marker interface that defines a Zope 3 browser layer.
+class IBNBelgiumTheme(IDefaultPloneLayer):
     """
+    Theme for BNBelgium
+    """
+class IHomePageNews(Interface):
+    """
+    Gestion des viewlets sur la homepage
+    """
+
+
