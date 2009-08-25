@@ -1,0 +1,18 @@
+<div id="zone-portlet">
+    <table>
+        <tr>
+            <td>
+                portlet_sejours_fute
+            </td>
+            <td>
+                portlet_dernieres_minutes
+            </td>
+            <td>
+                portlet_idee_sejour
+            </td>
+            <td>
+                portlet_boutique
+            </td>
+        </tr>
+    </table>
+</div>

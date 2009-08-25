@@ -26,11 +26,20 @@
         <viewlet name="plone.global_sections"/>
     </order>
 
-
     <order manager="plone.portalfooter" skinname="BNBelgium Skin">
         <viewlet name="bnb.footer" />
     </order>
 
+    <order manager="plone.abovecontenttitle" skinname="BNBelgium Skin">
+        <viewlet name="plone.app.i18n.locales.languageselector" />
+    </order>
+        
+    <order manager="plone.belowcontent" skinname="BNBelgium Skin">
+        <viewlet name="gites.moteur-recherche" />
+        <viewlet name="gites.outils-promo" />
+    </order>
 
-
+    <order manager="plone.portalfooter" skinname="BNBelgium Skin">
+        <viewlet name="gites.footer" />
+    </order>
 </object>
