@@ -1,0 +1,125 @@
+<div id="moteur-recherche">
+  <table cellspacing="0"
+         cellpadding="4">
+    <tr>
+         <td id="moteur-form-cell">
+            <div id="moteur-form">
+                <form action="" method="post"
+                      id="zc.page.browser_form"
+                      enctype="multipart/form-data"
+                      tal:attributes="action string:${here/absolute_url}/search.html">
+
+                     <label class="label-recherche" 
+                            i18n:domain="gites" 
+                            i18n:translate="label_communes">Lieu :</label>
+                     <br/>
+                     <select name="form.commune">
+                        <option value="-1"></option>
+                        <!--
+                        <tal:requete tal:repeat="communeInfos here/@@moteur_recherche_view/getCommunes">
+                           <span>
+                              <option tal:attributes="value python:'%s|%s' % (communeInfos[1], communeInfos[0])"
+                                      i18n:translate=""
+                                      tal:content="python:communeInfos[0]">Commune</option>
+                           </span>
+                        </tal:requete>
+                    -->
+                     </select>
+                     <br/>
+
+                     <label class="label-recherche" 
+                            i18n:domain="gites" 
+                            i18n:translate="label_tarifs">Tarifs :</label>
+                     <br/>
+                     <select name="form.tarif">
+                        <option value="-1"></option>
+                        <!--
+                        <tal:requete tal:repeat="tarif here/@@moteur_recherche_view/getTarifs">
+                           <span tal:define="cle tarif/pk">
+                              <option tal:attributes="value cle">
+                                  <span tal:condition="python: tarif['max'] == -1">> </span>
+                                  <span tal:replace="tarif/min" />€
+                                  <span tal:condition="python: tarif['max'] != -1"> - <span tal:replace="tarif/max" />€</span>
+                              </option>
+                           </span>
+                        </tal:requete>
+                        -->
+                     </select>
+                     <br/>
+
+                     <label class="label-recherche" 
+                            i18n:domain="gites" 
+                            i18n:translate="label_confort">Confort :</label>
+                     <br/>
+                     <select name="form.classification">
+                        <option value="-1"></option>
+                        <!--
+                        <tal:requete tal:repeat="epis here/@@moteur_recherche_view/getClassification">
+                          <option tal:attributes="value epis"
+                                  tal:content="epis">
+                          </option>
+                        </tal:requete>
+                     </select>
+                     -->
+                     <br/>
+
+                   <div id="chercher">
+                    <input type="hidden" 
+                           name="form.capacityMin" 
+                           value="2"/>
+
+                     <br/>
+
+                    <input type="submit" 
+                           i18n:domain="gites" 
+                           i18n:attributes="value action_search;" 
+                           value="Rechercher" 
+                           id="form.actions.search" 
+                           name="form.actions.search" />
+                   </div>
+                </form>
+            </div>
+         </td>
+         <td rowspan="2" align="center" valign="middle">
+            <div id="moteur-carte">
+               <div id="btn-carto1">
+                  <a href="hebergement_map"
+                     i18n:translate="recherche_cartographique"
+                     tal:attributes="href string:${context/absolute_url}/map">
+                     <img src="" 
+                          tal:attributes="src python:'wallonie_%s.gif' % request.LANGUAGE" 
+                          alt="Wallonie"
+                          title="wallonie" />
+                  </a>
+               </div>
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td id="moteur-ref-cell">
+           <div id="moteur-ref">
+               <!--
+                <form action=""
+                      tal:attributes="action string:$portal_url/moteur_recherche_view/getHebergementByPk"
+                      method="post">
+                -->
+                  <div id="ref_pk">
+                      <label i18n:domain="gites" 
+                             i18n:translate="label_reference"
+                             class="label-recherche">Recherche rapide</label>
+                      <p i18n:domain="gites"
+                         i18n:translate="encoder_reference">Encoder la r&eacute;f&eacute;rence de la chambre d'hôtes</p>
+                      <input type="text"
+                             name="heb_pk"
+                             value=""
+                             size="4" />
+                      <input type="submit" value="GO" />
+                  </div>
+               <!--
+               </form>
+           -->
+           </div>
+         </td>
+      </tr>
+   </table>
+</div>

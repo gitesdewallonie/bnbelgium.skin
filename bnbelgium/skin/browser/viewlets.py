@@ -10,6 +10,7 @@ $Id$
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from zope.component import getMultiAdapter
+from Products.LinguaPlone.browser.selector import TranslatableLanguageSelector
 
 
 class BNBelgiumSectionsViewlet(GlobalSectionsViewlet):
@@ -21,3 +22,17 @@ class BNBelgiumSectionsViewlet(GlobalSectionsViewlet):
         portal = portal_state.portal()
         logoName = portal.restrictedTraverse('base_properties').logoName
         return portal.restrictedTraverse(logoName).tag()
+
+
+class BNBMoteurRechercheViewlet(GlobalSectionsViewlet):
+    render = ViewPageTemplateFile('templates/moteur_recherche.pt')
+
+
+class BNBOutilsPromoViewlet(GlobalSectionsViewlet):
+    render = ViewPageTemplateFile('templates/outil_promo.pt')
+
+
+class ApplicaTranslatableLanguageSelector(TranslatableLanguageSelector):
+    """Language selector for translatable content.
+    """
+    render = ViewPageTemplateFile('templates/language_selector.pt')

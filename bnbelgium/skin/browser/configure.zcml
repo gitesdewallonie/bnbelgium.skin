@@ -3,6 +3,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="bnbelgium.skin">
 
+    
+    
     <!-- 'BNBelgium Skin' Zope 3 browser layer -->
     <interface
         interface=".interfaces.IBNBelgiumTheme"
@@ -10,56 +12,31 @@
         name="BNBelgium Skin"
         />
 
-    <!-- Viewlets registration -->
-    <!-- Zope 3 browser resources -->
-
-    <!-- Resource directory for images -->
-    <!--
-    <browser:resourceDirectory
-        name="bnbelgium.skin.images"
-        directory="images"
-        layer=".interfaces.IBNBelgiumTheme"
-        />
-    -->
-
-    <!-- Resource directory for stylesheets -->
-    <browser:resourceDirectory
-        name="bnbelgium.skin.stylesheets"
-        directory="stylesheets"
-        layer=".interfaces.IBNBelgiumTheme"
-        />
-
-    <!-- home page avec le tableau des sejours futes, .... -->
-    <!--
-    <browser:view
-      name="homepageView"
-      class=".BNBelgium.HomePageNews"
-      allowed_interface=".interfaces.IHomePageNews"
-      for="*"
-      permission="zope.Public"
-      />
-    -->
-
-    <!-- Home page header with flash animation viewlet -->
+    <!-- Home page :: header with flash animation viewlet -->
     <browser:viewlet
         name="BNBelgium.header"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class=".viewlets.BNBelgiumSectionsViewlet"
         layer=".interfaces.IBNBelgiumTheme"
         permission="zope.Public"
-        />
+        />        
 
-
-
-<!--
+    <!-- Home page :: moteur de recerche viewlet -->
     <browser:viewlet
-        name="BNBelgium.header"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-        class=".viewlets.BNBelgiumSectionsViewlet"
+        name="BNBelgium.serachEngine"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        class=".viewlets.BNBMoteurRechercheViewlet"
         layer=".interfaces.IBNBelgiumTheme"
         permission="zope.Public"
         />
--->
 
-
+    <!-- Home page :: box pour outils de promotion :
+         sejour fute - derniere minute - idee sejour -  boutique -->
+    <browser:viewlet
+        name="BNBelgium.promoBox"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        class=".viewlets.BNBOutilsPromoViewlet"
+        layer=".interfaces.IBNBelgiumTheme"
+        permission="zope.Public"
+        />
 </configure>
