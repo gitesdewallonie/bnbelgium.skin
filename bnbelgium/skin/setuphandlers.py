@@ -11,7 +11,7 @@ from plone.app.portlets.portlets import navigation
 from Products.CMFCore.utils import getToolByName
 from Products.Five.component import enableSite
 from zope.app.component.interfaces import ISite
-from plone.app.porltets.portlets import login
+from plone.app.portlets.portlets import login
 import logging
 logger = logging.getLogger('BNBelgium.skin')
 
@@ -24,6 +24,7 @@ def setupBNBelgium(context):
     if not ISite.providedBy(portal):
         enableSite(portal)
     createContent(portal)
+    return
     manager = getUtility(IPortletManager, name=u'bnb.portlets',
                          context=portal)
     assignments = getMultiAdapter((portal, manager),
