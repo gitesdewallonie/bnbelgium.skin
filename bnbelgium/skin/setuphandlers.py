@@ -23,7 +23,6 @@ def setupBNBelgium(context):
     portal = context.getSite()
     if not ISite.providedBy(portal):
         enableSite(portal)
-    setupHomePortlets(portal)
     createContent(portal)
 
 def publishObject(obj):

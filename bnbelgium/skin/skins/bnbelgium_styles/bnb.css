@@ -1,0 +1,659 @@
+/*
+*  BNBelgium Plone chambres Gites de Wallonie
+*
+*  Affinitic 2009
+*
+*/
+
+body{
+background-color : #16223f;    
+background-image : url(bnb_background.png);
+background-repeat : repeat-x;
+}
+
+/*** PORTAL-TOP ***/
+#portal-top {
+background-color:transparent;
+margin-left:auto;
+margin-right:auto;
+padding:0;
+width:950px !important;
+}
+
+
+/*** HEADER BNBBelgium ***/
+#header-BNBelgium{
+width:950px !important;
+text-align:center;
+}
+
+
+/*** GLOBAL NAV (les onglets) ***/
+#portal-globalnav {
+background-color:transparent;
+height:auto;
+line-height:normal;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+padding:0 0 0 2em;
+white-space:nowrap;
+width:950px !important;
+margin-left:auto;
+margin-right:auto;
+}
+
+
+
+
+/*** PERSONAL TOOLBAR ***/
+#portal-personaltools {
+background-color:#171a34;
+border-bottom:1px solid #8CACBB;
+border-top:1px solid #8CACBB;
+color:Black;
+line-height:1.6em;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0;
+padding:0 3em;
+text-align:right;
+text-transform:none;
+width:950px !important;
+margin-left:auto;
+margin-right:auto;
+}
+
+#portal-breadcrumbs {
+border-bottom:1px solid #8CACBB;
+line-height:1.6em;
+padding-left:2em;
+padding-right:2em;
+text-transform:none;
+margin-left:auto;
+margin-right:auto;
+width:950px !important;
+}
+
+
+
+/*** MAIN TABLEAU ***/
+#portal-columns {
+border-collapse:collapse;
+border-spacing:0;
+width:950px !important;
+margin-left:auto;
+margin-right:auto;
+}
+
+
+/*** HOMEPAGE STYLE ***/
+
+/* MENU */
+#zone-menu{
+background-color:#171a34;
+color:#b8bbd9;
+font-weight:bold;
+font-variant:small-caps;
+font-size:1.2em;
+}
+
+#zone-menu table{
+width:100%;
+text-align:center;
+}
+
+#zone-menu table td{
+border-spacing:0px;
+border-collpase:0px;
+border: 2px solid #a6b0d2;
+}
+
+#zone-menu-language {
+color:#1C1B50;
+width:135px;
+}
+
+#zone-menu a{
+text-decoration:none;
+color:#b8bbd9;
+}
+
+#zone-menu a:hover{
+text-decoration:underline;
+color:#f3f4f9;
+}
+
+#zone-menu a:active{
+text-decoration:underline;
+color:#ffb700;
+}
+
+
+/*** SEPARATEUR ***/
+#dot-spacer {
+background-color:#f0f3f6;
+background-image:url(dot.gif);
+background-repeat:repeat-x;
+height:5px;
+width:923px;
+margin-left:auto;
+margin-right:auto;
+margin-top:7px;
+}
+
+/*** language selector***/
+.visualGhosted {
+opacity:1;
+}
+
+.currentItem {
+border-width:0px 0px 1px 0px;
+border-style:solid;
+border-color:#FFA500;
+}
+#menu-languageselector a{
+color:#b8bbd9;
+}
+
+#menu-languageselector a:hover{
+color:#fff;
+}
+
+/* RECHERCHE */
+#moteur-recherche {
+width:786px;
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+margin-top: 13px;
+}
+
+#moteur-recherche td {
+padding:0px;
+}
+
+.label-recherche {
+text-transform: uppercase;
+}
+
+#zone-rechercher {
+/*width: 786px;*/
+margin-left: auto;
+margin-right: auto;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+#moteur-form-cell {
+background-color:#2B3049;
+color:#FFFFFF;
+}
+
+#moteur-form {
+text-align: left;
+padding-left: 30px;
+}
+
+#moteur-ref-cell {
+background-color:#DCE5EE;
+}
+
+#moteur-ref {
+text-align: left;
+padding-left: 30px;
+}
+
+#moteur-carte {
+width:346px;
+height:218px;
+font-size:1.1em;
+font-weight: bold;
+font-variant:small-caps;
+color:#bc0000;
+float:right;
+}
+
+/*** FIN HOME PAGE ***/
+
+
+/*** DEBUT OUTIL PROMO ***/
+/* Séjours Futés - Dernière minute - Idées Séjours - La boutique */
+#zone-portlet {
+width: 786px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 15px;
+margin-bottom: 15px;
+background-color:#31305B;
+}
+
+#zone-portlet table {
+margin-left:auto;
+margin-right:auto;
+height: 180px;
+padding-left:6px;
+padding-right:6px;
+}
+
+#zone-portlet div {
+}
+
+#zone-portlet td {
+padding-top:10px;
+padding-left:0px;
+padding-right:0px;
+}
+
+.portletItem {
+border-left:none;
+border-right:none;
+margin:0pt;
+padding:1em;
+}
+
+dl.portlet {
+background-color:#DEE7EC;
+margin:0px 5px 9px 5px;
+height:215px;
+}
+
+dt.portletHeader {
+border: none;
+font-size:1.2em;
+font-weight: bold;
+font-variant:small-caps;
+color:#bc0000;
+margin: 0em 11px !important;
+padding-top: 0px;
+padding-left: 0px;
+width:132px; <!-- nécessaire sinon probleme avec IE dans colonne de droite-->
+}
+
+dd.portletItemSingle, dd.portletItem  {
+border:none;
+margin: 0em 1em;
+padding:1px 6px;
+width:143px;
+}
+
+dd.portletItemLast {
+border: none;
+margin: 0em 1em;
+padding-bottom: 10px;
+padding-left: 20px;
+padding-top: 5px;
+/*width:123px;*/ <!-- nécessaire sinon problème avec IE dans colonne de droite-->
+}
+
+dd.portletFooter {
+background-color:#DEE7EC;
+border: none;
+border-top-style: none !important;
+margin: 5px 11px;
+padding-bottom: 10px;
+padding-top: 0px;
+padding-right: 16px;
+width:132px;
+}
+
+dd.portletFooter a img {
+display:none;
+}
+
+.portletItemDetails {
+text-align:center;
+left:auto;
+right:auto;
+margin-left:-5.5px;
+}
+/*** FIN OUTIL PROMO ***/
+
+
+
+/*** DEBUT DESCRIPTION HEBERGEMENT ***/
+fieldset {
+border:1px solid #8CACBB;
+line-height:1.5em;
+margin:0em;
+width:auto;
+}
+
+#description{
+width: 100%;
+}
+
+/* type hebergement - reference - nbre epis - gites+ - theme - capacite*/
+#des-zone1{
+position:relative;
+height: 30px;
+border-width:0px 0px 1px 0px;
+border-style: solid;
+border-color: #AAA;
+}
+
+#type_heb{
+padding-left:5px;
+float:left;
+font-weight:bold;
+font-size: 1.2em;
+}
+
+#heb_ref{
+float:left;
+margin-top: 5px;
+font-weight:bold;
+font-size: 0.8em;
+}
+
+#heb_epis{
+background-color:transparent;
+position:relative;
+width:150px;
+text-align:left;
+float:left;
+margin-top: 6px;
+padding-left: 60px;
+}
+
+#heb_theme{
+float:left;
+margin-top: 2px;
+padding-left: 20px;
+}
+
+#heb_gites_plus{
+float:left;
+margin-top: 2px;
+padding-left:85px;
+}
+
+#heb_capacite{
+text-align:right;
+padding-right: 5px;
+font-weight:bold;
+font-size: 1.2em;
+padding-top: 7px;
+}
+
+
+/*** 
+Zone centrale qui contient toutes les infos
+photos, tarifs, icones, confort, literie
+***/  
+#table-description{
+width:100%; 
+clear:both;
+margin-top:10px;
+border:none;
+}
+
+#table-description td{
+border:none;
+}
+
+#col-gauche{
+vertical-align: top;
+text-align: center;
+border:none;
+}
+
+#col-centre{
+vertical-align: top;
+width: 5em;
+border: none;
+}
+
+#col-droite{
+vertical-align: top;
+}
+
+#heb_photo{
+height:195px;
+text-align:left;
+}
+
+#heb_coordonnee_chambre{
+background-color:#82a7ea;
+width: 93%;
+height: 80px;
+padding: 0.9em 0.9em 0em 1em;
+margin-top: 5px;
+}
+
+#heb_coordonnee_gite{
+background-color:#ace087;
+width: 277px;
+height: 80px;
+padding: 0.9em 0.9em 0em 1em;
+margin-top: 5px;
+}
+
+#heb_nom{
+font-weight:bold;
+font-variant: small-caps;
+font-size: 1.5em;
+}
+
+#btn_outil{
+margin-top: 5px;  
+width: 300px;
+height: 40px;
+text-align:right;
+font-size:-2.8em;
+}
+
+#btn_gallery_back{
+text-align:left;
+margin-top: 5px;
+}
+
+.photo_gallery{
+margin-top:8px;
+}
+
+#heb_activite_icone{
+background-color:#fffd8b;
+font-size:0.8em;
+}
+
+#heb_info{
+padding:2px 2px 0px 4px;
+}
+
+.chambre{
+float:left;
+text-align: center;
+font-weight: bold;
+background-color:#faecd1;
+margin-right: 8px;
+}
+
+.lit{
+float:left;
+text-align: center;
+}
+
+.picto{
+margin:3px 6px;
+}
+
+/*** tarification ***/
+#tarification-chambre{
+background-color:#ced8e2;
+border-collapse: collapse;
+border:1px solid #4f658e;
+}
+
+#tarification-chambre td{
+border:1px solid #4f658e;
+}
+
+.bg-chambre{
+background-color:#82a7ea;
+height:40px;
+}
+
+#tarification-gite{
+background-color:#EEFFEE;
+border-collapse: collapse;
+border:1px solid #83aa67;
+}
+
+#tarification-gite td{
+border:1px solid #83aa67;
+}
+.bg-gite{
+background-color:#ace087;
+height:40px;
+}
+
+
+/*** region ***/
+#dans-la-region{
+width:100%;
+margin-top: 10px;
+}
+
+#region-sejour-fute{
+border-style:solid;
+border-width:1px 5px 1px 5px;
+border-color:#d7d3ab;
+background-color:#fffacb;
+margin:7px 0px;
+padding: 5px;
+}
+
+#region-maison-trourisme{
+border-style:solid;
+border-width:1px 5px 1px 5px;
+border-color:#d7d3ab;
+background-color:#fffacb;
+margin:7px 0px;
+padding:5px;
+}
+
+#region-info-tourisme{
+border-style:solid;
+border-width:1px 5px 1px 5px;
+border-color:#d7d3ab;
+background-color:#fffacb;
+margin:7px 0px;
+padding:5px;
+}
+
+#region-autre-heb{
+border-style:solid;
+border-width:1px 5px 1px 5px;
+border-color:#d7d3ab;
+background-color:#fffacb;
+margin:7px 0px;
+padding:5px;
+}
+
+.region-titre{
+font-variant: small-caps;
+font-size:1.2em;
+font-style:italic;
+}
+
+/*** infos proprio ****/
+#info-proprio {
+width:100%;
+margin-top: 10px;
+}
+
+#heb_proprio{
+padding:5px;
+}
+
+#heb_commentaire{
+height:200px;
+margin-left:5px;
+padding:5px;
+display:none;
+
+}
+
+#contact-proprio{
+background-color:#DDD;
+margin-top: 8px;
+text-align:right;
+padding-right:0.8em;
+height: 1.8em;
+}
+
+#contact-proprio a:hover{
+color:#F00;
+}
+
+.bg-chambre{
+background-color:#82a7ea;
+height:40px;
+}
+
+.bg-chambre-data{
+background-color:#ced8e2;
+}
+.bg-gite{
+background-color:#ace087;
+height:40px;
+}
+
+.field-des{
+margin-left:4px;
+}
+
+legend {
+background:transparent none repeat scroll 0 0;
+font-size:90%;
+padding:0.5em;
+}
+
+.leg-des{
+background-color:#F0F3F6;
+font-weight:bold;
+font-size:0.8em;
+color:#050b48;
+}
+
+.leg-des-rem{
+font-weight:bold;
+font-size:0.8em;
+color:#F00;
+}
+
+.floatleft{
+float:left;
+}
+
+.floatright{
+float:right;
+}
+
+#navigation_bas{
+border-top:1px solid #8cacbb;
+font-size:0.8em;
+text-align:center;
+}
+/*** FIN DESCRIPTION D'UN HEBERGEMENT ***/
+
+
+
+
+
+/*** PORTAL FOOTER ***/
+#portal-footer {
+background-color:#DEE7EC;
+border-bottom:1px solid #8CACBB;
+border-top:1px solid #8CACBB;
+float:none;
+line-height:1.2em;
+margin-top:2em;
+margin-left:auto;
+margin-right:auto;
+padding:0.5em 0 1em;
+text-align:center;
+width:950px !important;
+}
