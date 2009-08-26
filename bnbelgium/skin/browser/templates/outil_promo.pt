@@ -1,23 +1,7 @@
 <div id="zone-portlet">
     <table>
         <tr>
-            <td>
-              <div>
-                
-                  <tal:block replace="structure provider:plone.sejourfute" />
-                
-                &nbsp;
-              </div>
-            </td>
-            <td>
-                portlet_dernieres_minutes
-            </td>
-            <td>
-                portlet_idees_sejours
-            </td>
-            <td>
-                portlet_boutique
-            </td>
+                  <tal:block replace="structure provider:bnb.portlets" />
         </tr>
     </table>
 </div>

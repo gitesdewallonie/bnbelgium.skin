@@ -39,4 +39,10 @@
         layer=".interfaces.IBNBelgiumTheme"
         permission="zope.Public"
         />
+
+    <adapter
+      factory=".portletmanager.BNBPortletManagerRenderer"
+      provides="plone.portlets.interfaces.IPortletManagerRenderer"
+      />
+
 </configure>

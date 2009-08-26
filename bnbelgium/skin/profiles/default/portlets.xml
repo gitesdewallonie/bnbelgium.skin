@@ -1,12 +1,27 @@
 <?xml version="1.0"?>
-<portlets>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plone">
+   <portletmanager 
+     name="bnb.portlets"
+     type="bnbelgium.skin.browser.interfaces.IBNBPortletManager"
+     />
 
-<!-- Portlet type registrations -->
+   <!-- Portlet type registrations -->
+ <portlet
+   addview="portlets.Login"
+   title="Login"
+   description="A portlet which can render a log-in box"
+   i18n:attributes="title title_login_portlet;
+                    description description_login_portlet">
+        <for interface="bnbeglium.skin.browser.interfaces.IBNBPortletManager" />
+ </portlet>
+
     <portlet
         addview="bnbelgium.ideesejour"
         title="Idees sejour"
-        description="Liste des idees sejour"
-        />
+        description="Liste des idees sejour">
+    </portlet>
 
    <portlet
        addview="bnbelgium.derniereminute"

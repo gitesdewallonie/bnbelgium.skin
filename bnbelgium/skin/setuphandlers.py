@@ -11,7 +11,7 @@ from plone.app.portlets.portlets import navigation
 from Products.CMFCore.utils import getToolByName
 from Products.Five.component import enableSite
 from zope.app.component.interfaces import ISite
-
+from plone.app.porltets.portlets import login
 import logging
 logger = logging.getLogger('BNBelgium.skin')
 
@@ -24,10 +24,17 @@ def setupBNBelgium(context):
     if not ISite.providedBy(portal):
         enableSite(portal)
     createContent(portal)
+    manager = getUtility(IPortletManager, name=u'bnb.portlets',
+                         context=portal)
+    assignments = getMultiAdapter((portal, manager),
+                                  IPortletAssignmentMapping)
+    assignment = login.Assignment(title='logintest')
+    assignments['login'] = assignment
+
 
 def publishObject(obj):
     portal_workflow = getToolByName(obj, 'portal_workflow')
-    if portal_workflow.getInfoFor(obj, 'review_state') in ['visible','private']:
+    if portal_workflow.getInfoFor(obj, 'review_state') in ['visible', 'private']:
         portal_workflow.doActionFor(obj, 'publish')
     return
 
