@@ -4,7 +4,8 @@
                version="20090113-01"
                handler="bnbelgium.skin.setuphandlers.setupBNBelgium"
                title="BNBelgium Skin: miscellaneous import steps">
-    <dependency step="skins" />
+               <dependency step="skins" />
+               <dependency step="portlets" />
     Various import steps that are not handled by GS import/export
     handlers.
   </import-step>
