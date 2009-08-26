@@ -24,6 +24,10 @@ class BNBelgiumSectionsViewlet(GlobalSectionsViewlet):
         return portal.restrictedTraverse(logoName).tag()
 
 
+class BNBMenuSupViewlet(GlobalSectionsViewlet):
+        render = ViewPageTemplateFile('templates/menu_sup.pt')
+
+
 class BNBMoteurRechercheViewlet(GlobalSectionsViewlet):
     render = ViewPageTemplateFile('templates/moteur_recherche.pt')
 
@@ -36,3 +40,7 @@ class ApplicaTranslatableLanguageSelector(TranslatableLanguageSelector):
     """Language selector for translatable content.
     """
     render = ViewPageTemplateFile('templates/language_selector.pt')
+
+
+class BNBelgiumFooter(GlobalSectionsViewlet):
+    render = ViewPageTemplateFile('templates/footerBNBelgium.pt')

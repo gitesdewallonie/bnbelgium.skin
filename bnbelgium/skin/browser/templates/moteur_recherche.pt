@@ -15,7 +15,7 @@
                      <br/>
                      <select name="form.commune">
                         <option value="-1"></option>
-                        <!--
+            <!--            
                         <tal:requete tal:repeat="communeInfos here/@@moteur_recherche_view/getCommunes">
                            <span>
                               <option tal:attributes="value python:'%s|%s' % (communeInfos[1], communeInfos[0])"
@@ -23,7 +23,7 @@
                                       tal:content="python:communeInfos[0]">Commune</option>
                            </span>
                         </tal:requete>
-                    -->
+            -->
                      </select>
                      <br/>
 
