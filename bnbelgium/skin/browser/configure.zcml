@@ -11,6 +11,15 @@
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
         name="BNBelgium Skin"
         />
+        
+    <browser:page
+        for="*"
+        name="getTranslatedObjectUrl"
+        layer=".interfaces.IBNBelgiumTheme"
+        attribute="getTranslatedObjectUrl"
+        class=".translations.Translate"
+        permission="zope.Public"
+        />
 
     <!-- Home page :: header with flash animation viewlet -->
     <browser:viewlet
@@ -19,7 +28,16 @@
         class=".viewlets.BNBelgiumSectionsViewlet"
         layer=".interfaces.IBNBelgiumTheme"
         permission="zope.Public"
-        />        
+        />
+        
+    <!-- Home page :: menu supêrieur -->
+    <browser:viewlet
+        name="BNBelgium.menuSup"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.BNBMenuSupViewlet"
+        layer=".interfaces.IBNBelgiumTheme"
+        permission="zope.Public"
+        />
 
     <!-- Home page :: moteur de recerche viewlet -->
     <browser:viewlet

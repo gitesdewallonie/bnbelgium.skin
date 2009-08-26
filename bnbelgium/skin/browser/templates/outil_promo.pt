@@ -1,7 +1,7 @@
 <div id="zone-portlet">
     <table>
         <tr>
-                  <tal:block replace="structure provider:bnb.portlets" />
+            <tal:block replace="structure provider:bnbelgium.portlets" />
         </tr>
     </table>
 </div>

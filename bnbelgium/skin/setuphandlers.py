@@ -25,7 +25,7 @@ def setupBNBelgium(context):
         enableSite(portal)
     createContent(portal)
     return
-    manager = getUtility(IPortletManager, name=u'bnb.portlets',
+    manager = getUtility(IPortletManager, name=u'bnbelgium.portlets',
                          context=portal)
     assignments = getMultiAdapter((portal, manager),
                                   IPortletAssignmentMapping)
