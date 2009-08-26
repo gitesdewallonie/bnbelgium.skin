@@ -1,0 +1,70 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="gites">
+<body>
+<div metal:define-macro="portlet"
+            tal:define="results view/getRandomDerniereMinute;
+                        sejours_link view/getAllDerniereMinuteLink;"
+     tal:condition="results">
+
+<dl class="portlet" id="portlet-sejours-fute">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+            <span i18n:translate="derniere_minutes">Dernière minute</span>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <tal:sejours tal:repeat="obj results">
+    <dd class="portletItemSingle"
+        tal:define="oddrow repeat/obj/odd;
+                    hebergement obj/getHebergement;
+                    start python:view.getNiceEventStartDate(obj);
+                    end python:view.getNiceEventEndDate(obj);
+                    text python:view.getText(obj);
+                    promotion python: view.getCategory(obj) == 'promotion'"
+        tal:condition="hebergement">
+        <a href="#"
+           class="tile"
+           tal:attributes="href hebergement/@@url;
+                           title obj/description">
+            <span tal:replace="obj/Title">
+             Some Dernieres minutes
+            </span>
+            <div class="portletItemDetails">
+                <img id="derniere-minute-vignette" src="" 
+                     tal:attributes="src string:${context/portal_url}/photos_heb/${hebergement/getVignette}"/>
+                <span id="capacite">
+                  <img src="picto/capacite.png"
+                       title="Capacité"
+                       alt="Capacité" />
+                  <span tal:replace="string:${hebergement/heb_cgt_cap_min}/${hebergement/heb_cgt_cap_max}"/>
+                </span>
+                <br/>
+                <span id="derniere-minute-date">
+                   <span tal:replace="start" /> &rarr; <span tal:replace="end" />
+                </span>
+                <span id="promotion-text" 
+                      tal:condition="promotion"><br/><span tal:replace="structure text" /></span>
+            </div>
+        </a>
+    </dd>
+    </tal:sejours>
+
+    <dd class="portletFooter">
+        <a href=""
+           class="tile"
+           tal:attributes="href sejours_link">
+           <span i18n:translate="all_sejour_fute">Tous</span>
+           <img src="flechebulle_bleue.png" 
+                border="0" />
+        </a>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+
+</div>
+</body>
+</html>

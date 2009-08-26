@@ -1,0 +1,57 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="gites">
+<body>
+<div metal:define-macro="portlet"
+     tal:define="results view/getRandomSejourFute;
+                 sejours_link view/getAllSejoursView;
+                 "
+     tal:condition="results">
+
+<dl class="portlet" id="portlet-sejours-fute">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+            <span i18n:translate="sejours_futes">Séjours Futés</span>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <tal:sejours tal:repeat="obj results">
+    <dd class="portletItemSingle"
+        tal:define="oddrow repeat/obj/odd">
+        <a href="#"
+           class="tile"
+           tal:attributes="href obj/getURL;
+                           title obj/Description">
+            <span tal:replace="obj/pretty_title_or_id">
+             Some Sejour
+            </span>
+            <span class="portletItemDetails"
+                  tal:define="vignettes python:view.getRandomVignette(obj.getPath())">
+                  <tal:vign tal:repeat="vignette vignettes">
+                    <img src=""
+                         tal:attributes="src string:${vignette/getURL}/image_thumb"
+                         class="img-portlet" /><br />
+                  </tal:vign>
+            </span>
+        </a>
+    </dd>
+    </tal:sejours>
+
+    <dd class="portletFooter">
+        <a href=""
+           class="tile"
+           tal:attributes="href sejours_link">
+           <span i18n:translate="all_sejour_fute">Tous</span>
+           <img src="flechebulle_bleue.png" border="0" />
+        </a>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>
+
+
+</div>
+</body>
+</html>

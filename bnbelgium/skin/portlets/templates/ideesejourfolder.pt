@@ -1,0 +1,17 @@
+<dl class="portlet"
+        id="portlet-menu-idee-sejour"
+        tal:define="ideeTypes view/getIdeesTypes">
+       <dt class="portletHeader" i18n:translate="idees_sejours">
+         Idées séjours
+       </dt>
+    <tal:bcl tal:repeat="ideeSejourType ideeTypes">
+         <dd class="portletItemSingle"
+             tal:attributes="id python:test(ideeSejourType.getURL() in context.absolute_url(), 'currentItem', '')">
+              <a href=""
+                 tal:attributes="href ideeSejourType/getURL"
+                 tal:content="ideeSejourType/Title">Plus</a>
+         </dd>
+    </tal:bcl>
+       <dd class="portletItemLast">
+       </dd>
+</dl>
