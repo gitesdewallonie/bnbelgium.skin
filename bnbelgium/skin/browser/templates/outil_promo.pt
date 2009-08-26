@@ -2,7 +2,12 @@
     <table>
         <tr>
             <td>
-                portlet_sejours_fute
+              <div>
+                
+                  <tal:block replace="structure provider:plone.sejourfute" />
+                
+                &nbsp;
+              </div>
             </td>
             <td>
                 portlet_dernieres_minutes

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<portlets>
+
+<!-- Portlet type registrations -->
+    <portlet
+        addview="bnbelgium.ideesejour"
+        title="Idees sejour"
+        description="Liste des idees sejour"
+        />
+
+   <portlet
+       addview="bnbelgium.derniereminute"
+       title="Derniere minute"
+       description="Liste des dernieres minutes"
+       />
+
+    <portlet
+       addview="bnbelgium.sejourfute"
+       title="Sejour Fute"
+       description="Liste des sejours futes"
+       />
+
+   <portlet
+       addview="bnbelgium.laboutique"
+       title="La Boutique"
+       description="Liste les articles en boutique"
+       />
+
+</portlets>

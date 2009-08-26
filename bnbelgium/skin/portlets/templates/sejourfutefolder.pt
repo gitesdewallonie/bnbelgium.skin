@@ -1,0 +1,17 @@
+<dl class="portlet"
+        id="portlet-menu-sejour-fute"
+        tal:define="sejourFuteTypes view/getSejourFuteTypes">
+       <dt class="portletHeader" i18n:translate="sejours-futes">
+         Séjours futés
+       </dt>
+    <tal:bcl tal:repeat="sejourFuteType sejourFuteTypes">
+         <dd class="portletItemSingle"
+             tal:attributes="id python:test(sejourFuteType.getURL() in context.absolute_url(), 'currentItem', '')">
+              <a href=""
+                 tal:attributes="href sejourFuteType/getURL"
+                 tal:content="sejourFuteType/Title">Plus</a>
+         </dd>
+    </tal:bcl>
+       <dd class="portletItemLast">
+       </dd>
+</dl>

@@ -1,0 +1,50 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="gites">
+<body>
+<div metal:define-macro="portlet"
+  tal:define="obj view/getRandomIdeeSejour;
+              sejours_link view/getAllIdeesSejoursView;"
+  tal:condition="obj">
+   <div id="portlet-idee-sejour">
+      <dl class="portlet">
+         <dt class="portletHeader"
+             i18n:translate="idees_sejours">
+           <!--titre-->
+           Idées Séjour
+         </dt>
+
+         <dd class="portletItemSingle">
+        <a href="#"
+           class="tile"
+           tal:attributes="href obj/getURL;
+                           title obj/Description">
+            <span tal:replace="obj/pretty_title_or_id">
+             Some Sejour
+            </span>
+            <span class="portletItemDetails"
+                  tal:define="vignettes python:view.getRandomVignette(obj.getPath())">
+                  <tal:vign tal:repeat="vignette vignettes">
+                    <img src="" tal:attributes="src string:${vignette/getURL}/image_thumb"/><br />
+                  </tal:vign>
+            </span>
+            </a>
+         </dd>
+    <dd class="portletFooter">
+        <a href=""
+           class="tile"
+           tal:attributes="href sejours_link">
+           <span i18n:translate="all_sejour_fute">Tous</span>
+           <img src="flechebulle_bleue.png" border="0" />
+        </a>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+      </dl>
+   </div>
+</div>
+</body>
+</html>
+
+
