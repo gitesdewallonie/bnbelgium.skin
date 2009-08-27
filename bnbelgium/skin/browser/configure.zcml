@@ -3,22 +3,12 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="bnbelgium.skin">
 
-    
-    
+
     <!-- 'BNBelgium Skin' Zope 3 browser layer -->
     <interface
         interface=".interfaces.IBNBelgiumTheme"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
         name="BNBelgium Skin"
-        />
-        
-    <browser:page
-        for="*"
-        name="getTranslatedObjectUrl"
-        layer=".interfaces.IBNBelgiumTheme"
-        attribute="getTranslatedObjectUrl"
-        class=".translations.Translate"
-        permission="zope.Public"
         />
 
     <!-- Home page :: header with flash animation viewlet -->
@@ -29,7 +19,7 @@
         layer=".interfaces.IBNBelgiumTheme"
         permission="zope.Public"
         />
-        
+
     <!-- Home page :: menu supêrieur -->
     <browser:viewlet
         name="BNBelgium.menuSup"
