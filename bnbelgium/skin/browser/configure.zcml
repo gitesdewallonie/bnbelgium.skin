@@ -11,6 +11,30 @@
         name="BNBelgium Skin"
         />
 
+    <browser:page
+        for="*"
+        name="bnb_homepage"
+        permission="zope.Public"
+        template="templates/bnb_homepage.pt"
+        />
+
+    <browser:page
+        for="*"
+        name="getTranslatedObjectUrl"
+        layer=".interfaces.IBNBelgiumTheme"
+        attribute="getTranslatedObjectUrl"
+        class=".translations.Translate"
+        permission="zope.Public"
+        />
+
+    <!-- viewletmanger de la homepage pour les viewlet de promo-->
+    <browser:viewletManager
+        name="BNBelgium.promoOutil"
+        provides=".interfaces.IPromoOutil"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        />
+
     <!-- Home page :: header with flash animation viewlet -->
     <browser:viewlet
         name="BNBelgium.header"
@@ -32,7 +56,7 @@
     <!-- Home page :: moteur de recerche viewlet -->
     <browser:viewlet
         name="BNBelgium.serachEngine"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        manager=".interfaces.IPromoOutil"
         class=".viewlets.BNBMoteurRechercheViewlet"
         layer=".interfaces.IBNBelgiumTheme"
         permission="zope.Public"
@@ -42,7 +66,7 @@
          sejour fute - derniere minute - idee sejour -  boutique -->
     <browser:viewlet
         name="BNBelgium.promoBox"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        manager=".interfaces.IPromoOutil"
         class=".viewlets.BNBOutilsPromoViewlet"
         layer=".interfaces.IBNBelgiumTheme"
         permission="zope.Public"
