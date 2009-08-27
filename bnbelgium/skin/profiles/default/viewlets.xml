@@ -14,18 +14,8 @@
         <viewlet name="plone.personal_bar"/>
     </hidden>
 
-    <hidden manager="plone.belowcontenttitle" skinname="BNBelgium Skin">
-        <viewlet name="plone.belowcontenttitle.documentbyline" />
-    </hidden>
-
     <hidden manager="plone.abovecontenttitle" skinname="BNBelgium Skin">
         <viewlet name="plone.app.i18n.locales.languageselector" />
-    </hidden>
-
-    <hidden manager="plone.belowcontentbody" skinname="BNBelgium Skin">
-        <viewlet name="plone.belowcontentbody.contenthistory" />
-        <viewlet name="plone.abovecontenttitle.documentactions" />
-        <viewlet name="plone.abovecontenttitle.documentactions" />
     </hidden>
 
     <hidden manager="plone.portalfooter" skinname="BNBelgium Skin">
@@ -39,7 +29,7 @@
         <viewlet name="plone.app.i18n.locales.languageselector" />
     </order>
 
-    <order manager="plone.belowcontent" skinname="BNBelgium Skin">
+    <order manager="BNBelgium.promoOutil" skinname="BNBelgium Skin">
         <viewlet name="BNBelgium.moteur-recherche" />
         <viewlet name="BNBelgium.outils-promo" />
     </order>
