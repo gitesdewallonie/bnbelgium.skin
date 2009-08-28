@@ -7,9 +7,9 @@
                 <thead>
                   <th class="nosort">&nbsp;</th>
                   <th i18n:translate="nom_hebergement" class="" tal:attributes="class thclass">Nom </th>
-                  <th i18n:translate="localite_hebergement" class="" tal:attributes="class thclass">Localité</th>
+                  <th i18n:translate="localite_hebergement" class="" tal:attributes="class thclass">Localit&eacute;</th>
                   <th i18n:translate="epis_hebergement" class="" tal:attributes="class thclass">Classification</th>
-                  <th i18n:translate="tarif_hebergement" class="" tal:attributes="class thclass">Tarif 2p déj</th>
+                  <th i18n:translate="tarif_hebergement" class="" tal:attributes="class thclass">Tarif 2p d&eacute;j</th>
                   <th class="" tal:attributes="class thclass">
                     <span id="capacite">
                       <img src="picto/capacite.png"
@@ -22,7 +22,6 @@
                   <tal:loop tal:repeat="hebergement hebergements">
                   <tr tal:define="oddrow repeat/hebergement/odd;
                                   heb_url hebergement/@@url;
-                                  hebergementView hebergement/@@hebView;
                                   hebergementIcons hebergement/@@hebergement_icons;"
                       tal:attributes="class python:test(oddrow, 'draggable even', 'draggable odd');">
                     <td><a href="" tal:attributes="href heb_url"> <img src="" border="0" tal:attributes="src string:${portal_url}/vignettes_heb/${hebergement/getVignette}" /></a></td>
