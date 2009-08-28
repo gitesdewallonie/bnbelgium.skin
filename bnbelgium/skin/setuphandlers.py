@@ -9,8 +9,10 @@ from plone.portlets.interfaces import ILocalPortletAssignmentManager
 from Products.CMFCore.utils import getToolByName
 from Products.Five.component import enableSite
 from zope.app.component.interfaces import ISite
-from plone.app.portlets.portlets import login
 import logging
+
+from gites.skin.portlets import (sejourfute, derniereminute, ideesejour,
+                                 laboutiquefolder)
 from gites.core.utils import createFolder, createPage, publishObject
 logger = logging.getLogger('BNBelgium.skin')
 
@@ -30,13 +32,14 @@ def setupBNBelgium(context):
     blockParentPortlets(portal.bnb)
     clearPortlets(portal.bnb)
     changeFolderView(portal, portal.bnb, 'bnb_homepage')
+    setupPromoBoxesPortlets(portal.bnb)
     return
-    manager = getUtility(IPortletManager, name=u'bnbelgium.portlets',
-                         context=portal)
-    assignments = getMultiAdapter((portal, manager),
-                                  IPortletAssignmentMapping)
-    assignment = login.Assignment(title='logintest')
-    assignments['login'] = assignment
+    #manager = getUtility(IPortletManager, name=u'bnbelgium.portlets',
+    #                     context=portal)
+    #assignments = getMultiAdapter((portal, manager),
+    #                              IPortletAssignmentMapping)
+    #assignment = login.Assignment(title='logintest')
+    #assignments['login'] = assignment
 
 
 def getManager(folder, column):
@@ -81,6 +84,24 @@ def blockParentPortlets(folder):
     manager = getManager(folder, 'right')
     assignable = getMultiAdapter((folder, manager), ILocalPortletAssignmentManager)
     assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
+
+
+def setupPromoBoxesPortlets(folder):
+    portal = getToolByName(folder, 'portal_url').getPortalObject()
+    manager = getUtility(IPortletManager, name='bnbelgium.portlets', context=portal)
+    assignments = getMultiAdapter((folder, manager), IPortletAssignmentMapping)
+    if 'sejourfute' not in assignments.keys():
+        assignment = sejourfute.Assignment('Sejour Fute')
+        assignments['sejourfute'] = assignment
+    if 'derniereminute' not in assignments.keys():
+        assignment = derniereminute.Assignment('Derniere minute')
+        assignments['derniereminute'] = assignment
+    if 'ideesejour' not in assignments.keys():
+        assignment = ideesejour.Assignment('Idee sejour')
+        assignments['ideesejour'] = assignment
+    if 'laboutique' not in assignments.keys():
+        assignment = laboutiquefolder.Assignment('La boutique')
+        assignments['laboutique'] = assignment
 
 
 def createContent(portal):
