@@ -36,7 +36,7 @@ class BNBMoteurRecherche(BrowserView):
             int(heb_pk)
         except ValueError:
             portal = getToolByName(self.context, 'portal_url').getPortalObject()
-            return queryMultiAdapter((portal, self.request),
+            return queryMultiAdapter((portal.bnb, self.request),
                                       name="unknown_gites")()
         hebergement = session.query(HebTable).get(heb_pk)
         if hebergement and hebergement.type.type_heb_code in BNB_TYPES_HEB:
@@ -45,7 +45,7 @@ class BNBMoteurRecherche(BrowserView):
             return self.request.RESPONSE.redirect(str(hebURL))
         else:
             portal = getToolByName(self.context, 'portal_url').getPortalObject()
-            return queryMultiAdapter((portal, self.request),
+            return queryMultiAdapter((portal.bnb, self.request),
                                        name="unknown_gites")()
 
     def getCommunes(self):

@@ -10,6 +10,7 @@ $Id: translations.py 1859 2008-03-12 16:05:18Z jfroche $
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
+
 class Translate(BrowserView):
     """
     Translate object
@@ -22,7 +23,7 @@ class Translate(BrowserView):
         bnbFolder = getattr(portal, 'bnb')
         try:
             obj = self.context.restrictedTraverse(path)
-        except AttributeError:
+        except KeyError:
             obj = bnbFolder.restrictedTraverse(path)
         translatedObject = obj.getTranslation()
         if translatedObject:
