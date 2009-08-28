@@ -5,8 +5,11 @@
 <div metal:define-macro="portlet"
      tal:define="results view/getRandomSejourFute;
                  sejours_link view/getAllSejoursView;
-                 "
-     tal:condition="results">
+                 ">
+
+aaaaaaaaaaaaaaaaaaaaaaaa
+
+<span tal:condition="results">
 
 <dl class="portlet" id="portlet-sejours-fute">
 
@@ -50,7 +53,7 @@
     </dd>
 
 </dl>
-
+</span>
 
 </div>
 </body>
