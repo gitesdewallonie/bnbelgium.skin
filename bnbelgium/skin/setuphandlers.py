@@ -12,8 +12,6 @@ from zope.app.component.interfaces import ISite
 from plone.app.portlets.portlets import login
 import logging
 from gites.core.utils import (createFolder, createPage)
-from zope.interface import alsoProvides
-from bnbelgium.skin.interfaces import IBNBFolder
 logger = logging.getLogger('BNBelgium.skin')
 
 LANGUAGES = ['fr', 'nl', 'en', 'it', 'de']
@@ -86,7 +84,7 @@ def createContent(portal):
     #Create empty documents and folders
     bnb = createFolder(portal, 'bnb', "BnBelgium; les chambres d'hôtes en Ardenne et Wallonie", True)
     #blockParentPortlets(bnb)
-    alsoProvides(bnb, IBNBFolder)
+    #alsoProvides(bnb, IBNBFolder)
     #### MENU SUPERIEUR ####
     createPage(bnb, "chambres-d-hote", "Chambres d'hôte")
     createPage(bnb, "decouvrir-la-wallonie", "Découvrir la Wallonie ?")

@@ -10,6 +10,7 @@ class IPromoOutil(IViewletManager):
     sejour fute - idee sejour - boutique - derniere minute
     """
 
+
 class IBNBelgiumTheme(IDefaultPloneLayer):
     """
     Theme for BNBelgium
@@ -26,3 +27,26 @@ class IBNBPortletManager(IPortletManager):
     """
     Portlet Manager
     """
+
+
+class IMoteurRecherche(Interface):
+
+    def getHebergementByPk(heb_pk):
+        """
+        Get the url of the hebergement by Pk
+        """
+
+    def getCommunes():
+        """
+        Get communes list
+        """
+
+    def getTarifs():
+        """
+        Get tarifs list
+        """
+
+    def getClassification():
+        """
+        Get classifications list
+        """
