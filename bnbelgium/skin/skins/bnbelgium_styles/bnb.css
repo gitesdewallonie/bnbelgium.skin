@@ -11,6 +11,10 @@ background-image : url(bnb_background.png);
 background-repeat : repeat-x;
 }
 
+h1 {
+margin-top: 0px;
+} 
+
 /*** PORTAL-TOP ***/
 #portal-top {
 background-color:transparent;
@@ -162,6 +166,10 @@ color:#fff;
 }
 
 /* RECHERCHE */
+div.formHelp {                        
+display: none;                        
+} 
+
 #moteur-recherche {
 width:786px;
 text-align:center;

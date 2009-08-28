@@ -91,3 +91,21 @@ class BNBMoteurRecherche(BrowserView):
         Get classifications list
         """
         return [value for value in xrange(1, 5)]
+
+    def getHebergementTypes(self):
+        """
+        retourne les types d hebergements
+        table type_heb
+        """
+        wrapper = getSAWrapper('gites_wallons')
+        session = wrapper.session
+        TypeHeb = wrapper.getMapper('type_heb')
+        results = session.query(TypeHeb).all()
+        language = self.request.get('LANGUAGE', 'en')
+        typesList = []
+        for typeHeb in results:
+            types = {}
+            types['pk'] = typeHeb.type_heb_pk
+            types['name'] = typeHeb.getTitle(language)
+            typesList.append(types)
+        return typesList

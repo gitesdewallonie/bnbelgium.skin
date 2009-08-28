@@ -50,3 +50,9 @@ class IMoteurRecherche(Interface):
         """
         Get classifications list
         """
+
+    def getHebergementTypes():
+        """
+        retourne les types d hebergements
+        table type_heb
+        """

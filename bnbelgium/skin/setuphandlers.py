@@ -11,7 +11,7 @@ from Products.Five.component import enableSite
 from zope.app.component.interfaces import ISite
 from plone.app.portlets.portlets import login
 import logging
-from gites.core.utils import (createFolder, createPage)
+from gites.core.utils import createFolder, createPage, publishObject
 logger = logging.getLogger('BNBelgium.skin')
 
 LANGUAGES = ['fr', 'nl', 'en', 'it', 'de']
@@ -25,8 +25,10 @@ def setupBNBelgium(context):
     if not ISite.providedBy(portal):
         enableSite(portal)
     createContent(portal)
+    createHebergementFolder(portal.bnb, 'hebergement')
     setupSubSiteSkin(portal)
     blockParentPortlets(portal.bnb)
+    clearPortlets(portal.bnb)
     changeFolderView(portal, portal.bnb, 'bnb_homepage')
     return
     manager = getUtility(IPortletManager, name=u'bnbelgium.portlets',
@@ -97,5 +99,16 @@ def setupSubSiteSkin(portal):
     portal_props = getToolByName(portal, 'portal_properties')
     editskin_props = portal_props.get('editskin_switcher')
     editskin_props.switch_skin_action = 'based on specific domains'
-    editskin_props.specific_domains = ("http://www.bnbelgium.be/plone1", )
+    editskin_props.specific_domains = ("http://www.bnbelgium.be/gites", )
     editskin_props.edit_skin = "BNBelgium Skin"
+
+
+def createHebergementFolder(parentFolder, folderId):
+    if folderId not in parentFolder.objectIds():
+        parentFolder.invokeFactory('HebergementFolder', folderId)
+    createdFolder = getattr(parentFolder, folderId)
+    createdFolder.reindexObject()
+    publishObject(createdFolder)
+    createdFolder.reindexObject()
+    createdFolder.update()
+    return createdFolder

@@ -12,6 +12,12 @@
  <object name="bnbelgium_styles"
          meta_type="Filesystem Directory View"
          directory="bnbelgium.skin:skins/bnbelgium_styles"/>
+ <object name="gitesskin_images"
+         meta_type="Filesystem Directory View"
+         directory="gites.skin:skins/gites_images"/>
+ <object name="gitesskin_templates"
+         meta_type="Filesystem Directory View"
+         directory="gites.skin:skins/gites_templates"/>
 
  <skin-path name="BNBelgium Skin" based-on="Plone Default">
   <layer name="bnbelgium_images"
@@ -20,6 +26,12 @@
          insert-after="bnbelgium_images"/>
   <layer name="bnbelgium_styles"
          insert-after="bnbelgium_templates"/>
+  <layer name="gitesskin_templates"
+         insert-after="bnbelgium_styles"/>
+  <layer name="gitesskin_images"
+         insert-after="gitesskin_templates"/>
  </skin-path>
 
 </object>
+
+
