@@ -92,11 +92,9 @@
       <tr>
          <td id="moteur-ref-cell">
            <div id="moteur-ref">
-               <!--
                 <form action=""
-                      tal:attributes="action string:$portal_url/moteur_recherche_view/getHebergementByPk"
+                      tal:attributes="action string:${here/absolute_url}/moteur_recherche_view/getHebergementByPk"
                       method="post">
-                -->
                   <div id="ref_pk">
                       <label i18n:domain="gites"
                              i18n:translate="label_reference"
@@ -109,9 +107,7 @@
                              size="4" />
                       <input type="submit" value="GO" />
                   </div>
-               <!--
                </form>
-           -->
            </div>
          </td>
       </tr>
