@@ -5,6 +5,16 @@
            xmlns:plone="http://namespaces.plone.org/plone"
            i18n_domain="bnbelgium.skin">
 
+           <include package="plone.app.portlets"/>
+
+           <genericsetup:registerProfile
+                   name="sejourfute.portlet"
+                   title="Sejour Fute"
+                   directory="profiles/default"
+                   description="Sejour fute"
+                   provides="Products.GenericSetup.interfaces.EXTENSION"
+                   />
+
 
 <!-- IDEE SEJOUR -->
     <plone:portlet

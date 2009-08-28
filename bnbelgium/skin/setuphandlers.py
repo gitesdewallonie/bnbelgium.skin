@@ -88,7 +88,7 @@ def blockParentPortlets(folder):
 
 def setupPromoBoxesPortlets(folder):
     portal = getToolByName(folder, 'portal_url').getPortalObject()
-    manager = getUtility(IPortletManager, name='bnbelgium.portlets', context=portal)
+    manager = getUtility(IPortletManager, name='plone.bnbelgium.portlets', context=portal)
     assignments = getMultiAdapter((folder, manager), IPortletAssignmentMapping)
     if 'sejourfute' not in assignments.keys():
         assignment = sejourfute.Assignment('Sejour Fute')
