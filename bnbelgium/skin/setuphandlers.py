@@ -27,6 +27,7 @@ def setupBNBelgium(context):
     createContent(portal)
     setupSubSiteSkin(portal)
     blockParentPortlets(portal.bnb)
+    changeFolderView(portal, portal.bnb, 'bnb_homepage')
     return
     manager = getUtility(IPortletManager, name=u'bnbelgium.portlets',
                          context=portal)
