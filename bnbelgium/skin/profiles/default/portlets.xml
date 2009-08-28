@@ -2,6 +2,7 @@
 <portlets
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plone">
+    
     <portletmanager 
        name="bnbelgium.portlets"
        type="bnbelgium.skin.browser.interfaces.IBNBPortletManager"
@@ -9,7 +10,7 @@
 
    <!-- Portlet type registrations -->
     <portlet
-        addview="bnbelgium.ideesejour"
+        addview="bnbelgium.ideesejour"Ò
         title="Idees sejour"
         description="Liste des idees sejour">
         <for interface="bnbeglium.skin.browser.interfaces.IBNBPortletManager" />
