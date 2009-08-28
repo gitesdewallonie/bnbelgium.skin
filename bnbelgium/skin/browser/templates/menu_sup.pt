@@ -1,8 +1,5 @@
 <div id="zone-menu"
      tal:define="translate nocall:context/getTranslatedObjectUrl">
-
-
-<!-- BONNE VERSION AVEC I18N
        <table cellspacing="0">
          <tr>
            <td>
@@ -11,38 +8,37 @@
                 i18n:translate="home"
                 tal:attributes="href string:${here/absolute_url}">Home</a>
            </td>
-           <td>Ò
+           <td>
              <a href=""
                 i18n:domain="gites"
                 i18n:translate="chambres_hotes"
-                tal:attributes="href string:'chambres-dhotes')">Chambres d'hôtes</a>
+                tal:attributes="href string:('chambres-dhotes')">Chambres d'hôtes</a>
            </td>
            <td>
              <a href=""
                 i18n:domain="gites"
                 i18n:translate="decouvrir_wallonie"
-                tal=:attributes"href string:'decouvrir-la-wallonie')">Découvrir la Wallonie</a>
+                tal:attributes="href string:('decouvrir-la-wallonie')">Découvrir la Wallonie</a>
            </td>
            <td>
              <a href=""
                 i18n:domain="gites"
                 i18n:translate="proposer_hebergement"
-                tal:attributes="href string:'proposer-votre-hebergement')">Proposer votre hébergement</a>
+                tal:attributes="href string:('proposer-votre-hebergement')">Proposer votre hébergement</a>
            </td>
            <td>
              <a href=""
                 i18n:domain="gites"
                 i18n:translate="contact"
-                tal:attributes="href string:'contact')">Contact</a>
+                tal:attributes="href string:('contact')">Contact</a>
            </td>
            <td id="zone-menu-language">
-               <span metal:use-macro="here/language_selector/macros/language" />
+               <!--span metal:use-macro="here/language_selector/macros/language" /-->
            </td>
          </tr>
        </table>
--->
 
-
+<!--
 <table cellspacing="0">
   <tr>
     <td>
@@ -76,5 +72,5 @@
     </td>
   </tr>
 </table>
-
+-->
 </div>
