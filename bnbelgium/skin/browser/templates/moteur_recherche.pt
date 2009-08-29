@@ -1,6 +1,7 @@
 <div id="moteur-recherche">
   <table cellspacing="0"
-         cellpadding="4">
+         cellpadding="4"
+         width="100%">
     <tr>
          <td id="moteur-form-cell">
             <div id="moteur-form">
@@ -74,18 +75,16 @@
                 </form>
             </div>
          </td>
-         <td rowspan="2" align="center" valign="middle">
+         <td rowspan="2">
             <div id="moteur-carte">
-               <div id="btn-carto1">
-                  <a href="hebergement_map"
-                     i18n:translate="recherche_cartographique"
-                     tal:attributes="href string:${context/absolute_url}/map">
-                     <img src=""
-                          tal:attributes="src python:'wallonie_%s.gif' % request.LANGUAGE"
-                          alt="Wallonie"
-                          title="wallonie" />
-                  </a>
-               </div>
+                <a href="hebergement_map"
+                   i18n:translate="recherche_cartographique"
+                   tal:attributes="href string:${context/absolute_url}/map">
+                   <img src=""
+                        tal:attributes="src python:'wallonie_%s.gif' % request.LANGUAGE"
+                        alt="Wallonie"
+                        title="wallonie" />
+                </a>
             </div>
          </td>
       </tr>
