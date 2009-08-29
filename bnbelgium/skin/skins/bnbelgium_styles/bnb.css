@@ -89,6 +89,7 @@ border-spacing:0;
 width:950px !important;
 margin-left:auto;
 margin-right:auto;
+background-color:#dee7ec;
 }
 
 
@@ -652,13 +653,10 @@ text-align:center;
 
 
 /*** PORTAL FOOTER ***/
-#portal-footer {
+#footer-BNBelgium {
 background-color:#DEE7EC;
-border-bottom:1px solid #8CACBB;
-border-top:1px solid #8CACBB;
-float:none;
 line-height:1.2em;
-margin-top:2em;
+margin-top:-25px;
 margin-left:auto;
 margin-right:auto;
 padding:0.5em 0 1em;

@@ -1,41 +1,40 @@
-<div id="footer-clpsbw"
+<div id="footer-BNBelgium"
      metal:define-macro="portal_footer"
      i18n:domain="plone"
      tal:define="portal_url context/portal_url;">
 
    <p>
-      &copy; 2004 - <span tal:define="now modules/DateTime/DateTime"
-                          tal:replace="now/year" />
-      <span i18n:domain="clpsbw.skin"
-            i18n:translate="clpsbw_copyright">
-          Centre Local de Promotion de la Sante Brabant Wallon -  All rights reserved.
-      </span>
-   </p>
-
-   <p>
-      Informations légales (disclaimer) : This website may contain information
-      which is confidential and/or protected by intellectual property rights.<br />
-      Any use of the information contained herein (including, but not limited to,
-      total or partial reproduction, communication or distribution in any form)
-      is prohibited.Thank you for your cooperation.
+       <b>
+           Copyright &copy; 
+           2004 - <span tal:define="now modules/DateTime/DateTime"
+                        tal:replace="now/year" /> by
+                         
+           <a href="http://www.gitesdewallonie.be"
+              alt="Fédération des Gîtes de Wallonie a.s.b.l."
+              title="Fédération des Gîtes de Wallonie a.s.b.l."
+              target="_blank">
+              Fédération des Gîtes de Wallonie a.s.b.l.</a>
+       </b>
    </p>
 
    <div id="marque">
        <a href="http://plone.org"
           target="_blank"
-          title="This site was built using Plone CMS, the Open Source Content Management System. Click for more information."
-          i18n:attributes="title title_built_with_plone;"
-          i18n:translate="label_powered_by_plone">
-         Powered by Plone</a>
-       <br />
-
+          title="This site was built using Plone CMS, 
+                 the Open Source Content Management System. 
+                 Click for more information."
+          i18n:attributes="title title_built_with_plone;">
+          <img src="plone_powered.gif"
+               alt="Plone powered"
+               title="Plone powered" /></a>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <a href="http://www.affinitic.be"
           target="_blank"
           title="This site has been developed and is hosted by Affinitic."
-          i18n:domain="clpsbw.skin"
           i18n:attributes="title title_developed_affinitic;"
           i18n:translate="label_affinitic">
-         Developed and hosted by Affinitic</a>
+          <img src="affinitic_powered.gif"
+               alt="Affinitic powered"
+               title="Affinitic powered" /></a>
    </div>
-
 </div>
