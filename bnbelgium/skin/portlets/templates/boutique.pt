@@ -37,7 +37,7 @@
            class="tile"
            tal:attributes="href boutique_link">
            <span i18n:translate="all_sejour_fute">Tous</span>
-           <img src="flechebulle_bleue.png" border="0" />
+           <img src="fleche_grise.png" border="0" />
         </a>
         <span class="portletBottomLeft"></span>
         <span class="portletBottomRight"></span>
