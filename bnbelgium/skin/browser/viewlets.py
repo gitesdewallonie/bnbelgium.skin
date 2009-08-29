@@ -13,7 +13,7 @@ from zope.component import getMultiAdapter
 from Products.LinguaPlone.browser.selector import TranslatableLanguageSelector
 
 
-class BNBelgiumSectionsViewlet(GlobalSectionsViewlet):
+class BNBelgiumHeaderViewlet(GlobalSectionsViewlet):
     render = ViewPageTemplateFile('templates/headerBNBelgium.pt')
 
     def logo_tag(self):
@@ -42,5 +42,5 @@ class ApplicaTranslatableLanguageSelector(TranslatableLanguageSelector):
     render = ViewPageTemplateFile('templates/language_selector.pt')
 
 
-class BNBelgiumFooter(GlobalSectionsViewlet):
+class BNBelgiumFooterViewlet(GlobalSectionsViewlet):
     render = ViewPageTemplateFile('templates/footerBNBelgium.pt')
