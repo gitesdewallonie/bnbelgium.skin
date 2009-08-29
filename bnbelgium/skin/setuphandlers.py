@@ -7,25 +7,39 @@ from plone.portlets.interfaces import IPortletManager
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import ILocalPortletAssignmentManager
 from Products.CMFCore.utils import getToolByName
-from Products.Five.component import enableSite
-from zope.app.component.interfaces import ISite
 import logging
 
 from gites.skin.portlets import (sejourfute, derniereminute, ideesejour,
                                  laboutiquefolder)
 from gites.core.utils import createFolder, createPage, publishObject
+from bnbelgium.skin.browser.interfaces import IBNBPortletManager
+from zope.interface import alsoProvides
+from plone.portlets.manager import PortletManager
+
 logger = logging.getLogger('BNBelgium.skin')
 
 LANGUAGES = ['fr', 'nl', 'en', 'it', 'de']
 
 
+def registerPortletManager(portal):
+    sm = portal.getSiteManager()
+    registeredPortletManagers = [r.name for r in sm.registeredUtilities()
+                                    if r.provided.isOrExtends(IPortletManager)]
+    if 'bnbelgium.portlets' not in registeredPortletManagers:
+        manager = PortletManager()
+        alsoProvides(manager, IBNBPortletManager)
+        sm.registerUtility(component=manager,
+                               provided=IPortletManager,
+                               name='bnbelgium.portlets')
+
+
 def setupBNBelgium(context):
+
     if context.readDataFile('bnbelgium.skin_various.txt') is None:
         return
     logger.debug('Setup BNBelgium skin')
     portal = context.getSite()
-    if not ISite.providedBy(portal):
-        enableSite(portal)
+    registerPortletManager(portal)
     createContent(portal)
     createHebergementFolder(portal.bnb, 'hebergement')
     setupSubSiteSkin(portal)
@@ -88,7 +102,7 @@ def blockParentPortlets(folder):
 
 def setupPromoBoxesPortlets(folder):
     portal = getToolByName(folder, 'portal_url').getPortalObject()
-    manager = getUtility(IPortletManager, name='plone.bnbelgium.portlets', context=portal)
+    manager = getUtility(IPortletManager, name='bnbelgium.portlets', context=portal)
     assignments = getMultiAdapter((folder, manager), IPortletAssignmentMapping)
     if 'sejourfute' not in assignments.keys():
         assignment = sejourfute.Assignment('Sejour Fute')
