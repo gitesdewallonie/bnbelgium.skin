@@ -20,7 +20,7 @@ class Translate(BrowserView):
         """
         """
         portal = getToolByName(self.context, 'portal_url').getPortalObject()
-        bnbFolder = getattr(portal, 'bnb')
+        bnbFolder = getattr(portal, 'bnbelgium-les-chambres-dhotes-en-ardenne-et-wallonie')
         try:
             obj = self.context.restrictedTraverse(path)
         except KeyError:
