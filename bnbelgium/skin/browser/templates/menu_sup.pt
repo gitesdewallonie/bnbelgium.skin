@@ -33,7 +33,6 @@
                 tal:attributes="href python:translate('contact')">Contact</a>
            </td>
            <td id="zone-menu-language">
-               <!--span metal:use-macro="here/language_selector/macros/language" /-->
            </td>
          </tr>
        </table>
