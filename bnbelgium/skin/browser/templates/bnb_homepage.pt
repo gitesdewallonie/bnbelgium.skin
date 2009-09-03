@@ -5,6 +5,7 @@
 
 <body>
     <div metal:fill-slot="main" id="content-news">
+         <h1>BnBelgium</h1>
          <div id="promo-outil" i18n:domain="plone">
             <div tal:replace="structure provider:BNBelgium.promoOutil" />
         </div>
