@@ -36,40 +36,4 @@
            </td>
          </tr>
        </table>
-
-<!--
-<table cellspacing="0">
-  <tr>
-    <td>
-      <a href=""
-         i18n:domain="gites"
-         i18n:translate="home"
-         tal:attributes="href string:${here/absolute_url}">Home</a>
-    </td>
-    <td>
-      <a href="chambres-dhotes"
-         i18n:domain="gites"
-         i18n:translate="chambres_hotes">Chambres d'hôtes</a>
-    </td>
-    <td>
-      <a href="decouvrir-la-wallonie"
-         i18n:domain="gites"
-         i18n:translate="decouvrir_wallonie">Découvrir la Wallonie</a>
-    </td>
-    <td>
-      <a href="proposer-votre-hebergement"
-         i18n:domain="gites"
-         i18n:translate="proposer_hebergement">Proposer votre hébergement</a>
-    </td>
-    <td>
-      <a href="contact"
-         i18n:domain="gites"
-         i18n:translate="contact">Contact</a>
-    </td>
-    <td id="zone-menu-language">
-       <a href="#">language selector :(</a>
-    </td>
-  </tr>
-</table>
--->
 </div>
