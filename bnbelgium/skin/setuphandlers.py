@@ -11,14 +11,14 @@ import logging
 
 from gites.skin.portlets import (sejourfute, derniereminute, ideesejour,
                                  laboutiquefolder)
+from gites.skin.setuphandlers import createTranslationsForObject, \
+                                     changeFolderView
 from gites.core.utils import createFolder, createPage, publishObject
 from bnbelgium.skin.browser.interfaces import IBNBPortletManager
 from zope.interface import alsoProvides
 from plone.portlets.manager import PortletManager
 
 logger = logging.getLogger('BNBelgium.skin')
-
-LANGUAGES = ['fr', 'nl', 'en', 'it', 'de']
 
 
 def registerPortletManager(portal):
@@ -73,12 +73,6 @@ def addViewToType(portal, typename, templatename):
         foldertype.manage_changeProperties(view_methods=available_views)
 
 
-def changeFolderView(portal, folder, viewname):
-    addViewToType(portal, 'Folder', viewname)
-    if folder.getLayout() != viewname:
-        folder.setLayout(viewname)
-
-
 def clearColumnPortlets(folder, column):
     manager = getManager(folder, column)
     assignments = getMultiAdapter((folder, manager), IPortletAssignmentMapping)
@@ -121,13 +115,13 @@ def setupPromoBoxesPortlets(folder):
 def createContent(portal):
     #Create empty documents and folders
     bnb = createFolder(portal, 'bnb', "BnBelgium; les chambres d'hôtes en Ardenne et Wallonie", True)
-    #blockParentPortlets(bnb)
-    #alsoProvides(bnb, IBNBFolder)
-    #### MENU SUPERIEUR ####
     createPage(bnb, "chambres-d-hote", "Chambres d'hôte")
     createPage(bnb, "decouvrir-la-wallonie", "Découvrir la Wallonie ?")
     createPage(bnb, "proposer-votre-hebergement", "Proposer votre hébergement")
     createPage(bnb, "contact", "Contact")
+    mapFolder = createFolder(bnb, "map", "Map", True)
+    changeFolderView(portal, mapFolder, 'hebergement_map')
+    createTranslationsForObject(mapFolder)
 
 
 def setupSubSiteSkin(portal):
