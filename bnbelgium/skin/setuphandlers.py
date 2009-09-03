@@ -33,6 +33,7 @@ def registerPortletManager(portal):
                                name='bnbelgium.portlets')
 
 
+
 def setupBNBelgium(context):
 
     if context.readDataFile('bnbelgium.skin_various.txt') is None:

@@ -52,6 +52,21 @@ margin-right:auto;
 }
 
 
+/*** LANGUAGE SELECTOR ***/
+#portal-languageselector {
+float:right;
+margin-right:26px;
+margin-top:-20px;
+font-size:1.1em;
+}
+#portal-languageselector a {
+color:#b8bbd9;
+text-decoration:none;
+}
+#portal-languageselector a:hover {
+color:#fff;
+text-decoration:underline;
+}
 
 
 /*** PERSONAL TOOLBAR ***/

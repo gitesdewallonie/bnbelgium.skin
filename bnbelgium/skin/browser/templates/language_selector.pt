@@ -1,6 +1,7 @@
-<metal:language define-macro="language"
-                tal:condition="context/isTranslatable"
-                tal:define="data context/languageSelectorData">
+<div id="language"
+     tal:condition="context/isTranslatable"
+     tal:define="data context/languageSelectorData">
+                
     <ul tal:condition="python:len(data) &gt; 1" id="menu-languageselector">
       <span tal:repeat="lang data">
         <li tal:define="current lang/current;
@@ -18,4 +19,4 @@
         </li>
       </span>
     </ul>
-</metal:language>
+</div>
