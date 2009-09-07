@@ -33,7 +33,6 @@ def registerPortletManager(portal):
                                name='bnbelgium.portlets')
 
 
-
 def setupBNBelgium(context):
 
     if context.readDataFile('bnbelgium.skin_various.txt') is None:
@@ -116,10 +115,14 @@ def setupPromoBoxesPortlets(folder):
 def createContent(portal):
     #Create empty documents and folders
     bnb = createFolder(portal, 'bnb', "BnBelgium; les chambres d'hôtes en Ardenne et Wallonie", True)
-    createPage(bnb, "chambres-d-hote", "Chambres d'hôte")
-    createPage(bnb, "decouvrir-la-wallonie", "Découvrir la Wallonie ?")
-    createPage(bnb, "proposer-votre-hebergement", "Proposer votre hébergement")
-    createPage(bnb, "contact", "Contact")
+    chambreHote = createPage(bnb, "chambres-d-hote", "Chambres d'hôte")
+    chambreHote.setLanguage('fr')
+    decouvrirWallonie = createPage(bnb, "decouvrir-la-wallonie", "Découvrir la Wallonie ?")
+    decouvrirWallonie.setLanguage('fr')
+    proposerHebergement = createPage(bnb, "proposer-votre-hebergement", "Proposer votre hébergement")
+    proposerHebergement.setLanguage('fr')
+    contact = createPage(bnb, "contact", "Contact")
+    contact.setLanguage('fr')
     mapFolder = createFolder(bnb, "map", "Map", True)
     changeFolderView(portal, mapFolder, 'hebergement_map')
     createTranslationsForObject(mapFolder)
