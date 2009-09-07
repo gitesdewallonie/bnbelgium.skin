@@ -115,7 +115,7 @@ def setupPromoBoxesPortlets(folder):
 def createContent(portal):
     #Create empty documents and folders
     bnb = createFolder(portal, 'bnb', "BnBelgium; les chambres d'hôtes en Ardenne et Wallonie", True)
-    chambreHote = createPage(bnb, "chambres-d-hote", "Chambres d'hôte")
+    chambreHote = createPage(bnb, "chambres-d-hotes", "Chambres d'hôtes")
     chambreHote.setLanguage('fr')
     decouvrirWallonie = createPage(bnb, "decouvrir-la-wallonie", "Découvrir la Wallonie ?")
     decouvrirWallonie.setLanguage('fr')
