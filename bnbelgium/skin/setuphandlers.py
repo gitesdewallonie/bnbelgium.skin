@@ -117,6 +117,7 @@ def createContent(portal):
     bnb = createFolder(portal, 'bnb', "BnBelgium; les chambres d'hôtes en Ardenne et Wallonie", True)
     chambreHote = createPage(bnb, "chambres-d-hotes", "Chambres d'hôtes")
     chambreHote.setLanguage('fr')
+    chambreHote._at_creation_flag = True
     decouvrirWallonie = createPage(bnb, "decouvrir-la-wallonie", "Découvrir la Wallonie ?")
     decouvrirWallonie.setLanguage('fr')
     proposerHebergement = createPage(bnb, "proposer-votre-hebergement", "Proposer votre hébergement")
