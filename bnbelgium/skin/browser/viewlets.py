@@ -10,6 +10,7 @@ $Id$
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from zope.component import getMultiAdapter
+from Products.LinguaPlone.browser.selector import TranslatableLanguageSelector
 
 
 class BNBelgiumHeaderViewlet(GlobalSectionsViewlet):
@@ -37,3 +38,9 @@ class BNBOutilsPromoViewlet(GlobalSectionsViewlet):
 
 class BNBelgiumFooterViewlet(GlobalSectionsViewlet):
     render = ViewPageTemplateFile('templates/footerBNBelgium.pt')
+
+
+class BNBTranslatableLanguageSelector(TranslatableLanguageSelector):
+    """Language selector for translatable content.
+    """
+    render = ViewPageTemplateFile('templates/language_selector.pt')

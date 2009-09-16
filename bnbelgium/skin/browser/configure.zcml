@@ -92,6 +92,15 @@
         permission="zope.Public"
         />
 
+    <!-- Selecteur de langue -->
+    <browser:viewlet
+          name="BNBelgium.languageselector"
+          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          class=".viewlets.BNBTranslatableLanguageSelector"
+          permission="zope.Public"
+          layer=".interfaces.IBNBelgiumTheme"
+          />
+
     <adapter
       factory=".portletmanager.BNBPortletManagerRenderer"
       provides="plone.portlets.interfaces.IPortletManagerRenderer"
