@@ -1,5 +1,6 @@
 <div id="header-BNBelgium">
   <!--<img src="bnb_bandeau.png" />-->
+      <div align="center">Plone ne supporte plus les sous-répertoires : plus de flash</div>
       <object type="application/x-shockwave-flash"
               data="gdw_bandeau.swf"
               style="width:950px;height:165px;">
