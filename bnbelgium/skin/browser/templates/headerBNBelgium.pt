@@ -1,19 +1,17 @@
 <div id="header-BNBelgium">
-  <!--<img src="bnb_bandeau.png" />-->
-      <div align="center">Plone ne supporte plus les sous-répertoires : plus de flash</div>
-      <object type="application/x-shockwave-flash"
-              data="gdw_bandeau.swf"
-              style="width:950px;height:165px;">
-        <param name="base"
-               value="gdw_bandeau.swf" />
-        <param name="movie"
-               value="gdw_bandeau.swf" />
-        <param name="quality"
-               value="high">
-        <param name="wmode"
-               value="transparent" />
-        <param name="menu"
-               value="true" />
-      </object>
+  <object type="application/x-shockwave-flash"
+          data="gdw_bandeau.swf"
+          style="width:950px;height:165px;">
+    <param name="base"
+           value="gdw_bandeau.swf" />
+    <param name="movie"
+           value="gdw_bandeau.swf" />
+    <param name="quality"
+           value="high">
+    <param name="wmode"
+           value="transparent" />
+    <param name="menu"
+           value="true" />
+  </object>
 </div>
 <!--<div class="visualClear"></div>-->
