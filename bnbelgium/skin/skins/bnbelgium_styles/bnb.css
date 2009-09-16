@@ -55,13 +55,15 @@ margin-right:auto;
 /*** LANGUAGE SELECTOR ***/
 #portal-languageselector {
 float:right;
-margin-right:26px;
-margin-top:-20px;
+margin-right:12px;
+margin-top:2px;
 font-size:1.1em;
 }
 #portal-languageselector a {
+text-transform:uppercase;
 color:#b8bbd9;
 text-decoration:none;
+padding-left:5px;
 }
 #portal-languageselector a:hover {
 color:#fff;
