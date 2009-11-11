@@ -5,7 +5,7 @@ from Products.CMFCore.utils import getToolByName
 from z3c.sqlalchemy import getSAWrapper
 from zope.component import queryMultiAdapter
 
-BNB_TYPES_HEB = ['CH', 'CHECR']
+BNB_TYPES_HEB = ['CH', 'MH', 'CHECR']
 BNB_TARIFS = [{'pk':0,
                'min':30,
                'max':50},
@@ -109,3 +109,24 @@ class BNBMoteurRecherche(BrowserView):
             types['name'] = typeHeb.getTitle(language)
             typesList.append(types)
         return typesList
+
+    def getGroupedHebergementTypes(self):
+        """
+        retourne les deux groupes de types d'hebergements
+        """
+        # get some translation interfaces
+        translation_service = getToolByName(self.context,
+                                            'translation_service')
+
+        utranslate = translation_service.utranslate
+        lang = self.request.get('LANGUAGE', 'en')
+        return [{'pk': -2,
+                 'name': utranslate('gites', "Gites et Meubles",
+                                    context=self.context,
+                                    target_language=lang,
+                                    default="Gites")},
+                {'pk': -3,
+                 'name': utranslate('gites', "Chambre d'hote",
+                                    context=self.context,
+                                    target_language=lang,
+                                    default="Chambre d'hote")}]

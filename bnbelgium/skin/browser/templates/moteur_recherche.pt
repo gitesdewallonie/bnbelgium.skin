@@ -62,8 +62,7 @@
                     <input type="hidden"
                            name="form.capacityMin"
                            value="2"/>
-
-                     <br/>
+                    <br/>
 
                     <input type="submit"
                            i18n:domain="gites"

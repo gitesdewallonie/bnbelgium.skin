@@ -15,6 +15,14 @@ background-repeat : repeat-x;
 background-color: #F0F3F6;
 }
 
+.documentActions {
+display: none;
+}
+
+#content {
+margin-bottom: 1em;
+}
+
 h1 {
 margin-top: 0px;
 }

@@ -1,7 +1,9 @@
+from zope import schema
 from plone.theme.interfaces import IDefaultPloneLayer
 from zope.interface import Interface
 from plone.portlets.interfaces import IPortletManager
 from zope.viewlet.interfaces import IViewletManager
+from gites.skin import GitesMessage as _
 
 
 class IPromoOutil(IViewletManager):
@@ -56,3 +58,58 @@ class IMoteurRecherche(Interface):
         retourne les types d hebergements
         table type_heb
         """
+
+    def getGroupedHebergementTypes():
+        """
+        retourne les deux groupes de types d'hebergements
+        """
+
+
+class IBNBSearchHebergement(Interface):
+    """
+    A basic search module to search BNB hebergement
+    """
+
+    commune = schema.Choice(
+        title=_('Town'),
+        required=True,
+        vocabulary="bnbelgium.communes")
+
+    tarif = schema.Choice(
+        title=_('Price'),
+        required=True,
+        vocabulary="bnbelgium.tarif")
+
+    classification = schema.Choice(
+        title=_('Classification'),
+        required=True,
+        vocabulary="bnbelgium.classification")
+
+    capacityMin = schema.Int(title=_('Minimum Capacity'),
+                             required=False)
+
+
+class IBNBSearchHebergementTooMuch(Interface):
+    """
+    A basic search module to search BNB hebergement
+    """
+    seeResults = schema.Bool(title=_('Show results even if more than 50'),
+                             required=False)
+
+    commune = schema.Choice(
+        title=_('Town'),
+        required=True,
+        vocabulary="bnbelgium.communes")
+
+    tarif = schema.Choice(
+        title=_('Price'),
+        required=True,
+        vocabulary="bnbelgium.tarif")
+
+    classification = schema.Choice(
+        title=_('Classification'),
+        required=True,
+        vocabulary="bnbelgium.classification")
+
+    capacityMin = schema.Int(title=_('Minimum Capacity'),
+                             required=False)

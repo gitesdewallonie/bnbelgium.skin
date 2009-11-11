@@ -38,6 +38,14 @@
         permission="zope.Public"
         />
 
+    <browser:page
+      for="*"
+      name="search.html"
+      layer=".interfaces.IBNBelgiumTheme"
+      class=".SearchHebergement.BNBSearchHebergement"
+      permission="zope.Public"
+      />
+
     <!-- viewletmanger de la homepage pour les viewlet de promo-->
     <browser:viewletManager
         name="BNBelgium.promoOutil"
@@ -105,5 +113,17 @@
       factory=".portletmanager.BNBPortletManagerRenderer"
       provides="plone.portlets.interfaces.IPortletManagerRenderer"
       />
+
+    <utility
+      name="bnbelgium.communes"
+      component=".vocabulary.CommunesVocabularyFactory"/>
+
+    <utility
+      name="bnbelgium.tarif"
+      component=".vocabulary.TarifsVocabularyFactory"/>
+
+    <utility
+      name="bnbelgium.classification"
+      component=".vocabulary.ClassificationsVocabularyFactory"/>
 
 </configure>
