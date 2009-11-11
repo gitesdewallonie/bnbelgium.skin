@@ -23,7 +23,7 @@ class Translate(BrowserView):
         bnbFolder = getattr(portal, 'bnb')
         try:
             obj = self.context.restrictedTraverse(path)
-        except KeyError:
+        except:
             obj = bnbFolder.restrictedTraverse(path)
         translatedObject = obj.getTranslation()
         if translatedObject:
