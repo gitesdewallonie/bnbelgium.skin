@@ -12,7 +12,7 @@
                   <th i18n:translate="tarif_hebergement" class="" tal:attributes="class thclass">Tarif 2p d&eacute;j</th>
                   <th class="" tal:attributes="class thclass">
                     <span id="capacite">
-                      <img src="picto/capacite.png"
+                      <img src="capacite.png"
                            title="Capacité"
                            alt="Capacité"
                            i18n:attributes="alt capacite; title capacite" />
