@@ -32,6 +32,9 @@
          script/style tags. -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
 
+    <script
+        type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
+
     <metal:baseslot define-slot="base">
       <base tal:attributes="href here/renderBase" /><!--[if lt IE 7]></base><![endif]-->
     </metal:baseslot>
