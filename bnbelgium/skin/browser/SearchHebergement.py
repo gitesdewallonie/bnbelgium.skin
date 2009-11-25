@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from dateutil.relativedelta import relativedelta
+
 from zope.formlib import form
 from z3c.sqlalchemy import getSAWrapper
-from sqlalchemy import and_, or_
+from sqlalchemy import and_, or_, select
 
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -92,6 +94,7 @@ class BNBSearchHebergement(SearchHebergement):
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
         hebergementTable = wrapper.getMapper('hebergement')
+        reservationsTable = wrapper.getMapper('reservation_proprio')
         communeTable = wrapper.getMapper('commune')
         episTable = wrapper.getMapper('link_hebergement_epis')
         hebergementType = data.get('hebergementType')
@@ -99,6 +102,8 @@ class BNBSearchHebergement(SearchHebergement):
         tarif = data.get('tarif')
         classification = data.get('classification')
         capacityMin = data.get('capacityMin')
+        fromDate = data.get('fromDate')
+        toDate = data.get('toDate')
         seeResults = self.request.form.has_key('form.seeResults')
 
         query = session.query(hebergementTable).join('province')
@@ -134,6 +139,26 @@ class BNBSearchHebergement(SearchHebergement):
                 capacityMin = 16
                 query = query.filter(and_(hebergementTable.heb_cgt_cap_min >= capacityMin,
                                           hebergementTable.heb_cgt_cap_max >= capacityMax))
+
+        if fromDate or toDate:
+            query = query.filter(hebergementTable.heb_calendrier_proprio != 'non actif')
+            # on ne considère que les hébergements pour lequel le calendrier
+            # est utilisé
+            beginDate = fromDate or (toDate + relativedelta(days=-1))
+            endDate = toDate or (fromDate + relativedelta(days=+1))
+            # il ne peut pas y avoir d'enregistrement dans la table de
+            # réservations entre les dates de début et de fin (vu que seules
+            # les indisponibilités sont dans la table)
+
+            # il y a un décalage dans le calcul des jours / nuits :
+            # 1 nuit indiquée comme louée = 2 jours demandés
+            # --> >= beginDate et < endDate
+            busyHebQuery = session.query(reservationsTable)
+            busyHeb = select([reservationsTable.heb_fk],
+                             and_(reservationsTable.res_date >= beginDate,
+                                  reservationsTable.res_date < endDate)).distinct().execute().fetchall()
+            busyHebPks = [heb.heb_fk for heb in busyHeb]
+            query = query.filter(~hebergementTable.heb_pk.in_(busyHebPks))
 
         if isinstance(self.context, IdeeSejour):
             sejour = self.context

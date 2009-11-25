@@ -88,6 +88,14 @@ class IBNBSearchHebergement(Interface):
     capacityMin = schema.Int(title=_('Minimum Capacity'),
                              required=False)
 
+    fromDate = schema.Date(title=_('Sejour du'),
+                              description=_('Stay from'),
+                              required=False)
+
+    toDate = schema.Date(title=_('Sejour au'),
+                              description=_('Stay to'),
+                              required=False)
+
 
 class IBNBSearchHebergementTooMuch(Interface):
     """
@@ -113,3 +121,11 @@ class IBNBSearchHebergementTooMuch(Interface):
 
     capacityMin = schema.Int(title=_('Minimum Capacity'),
                              required=False)
+
+    fromDate = schema.Date(title=_('Sejour du'),
+                              description=_('Stay from'),
+                              required=False)
+
+    toDate = schema.Date(title=_('Sejour au'),
+                              description=_('Stay to'),
+                              required=False)
