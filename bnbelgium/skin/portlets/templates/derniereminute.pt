@@ -35,7 +35,7 @@
                 <img id="derniere-minute-vignette" src="" 
                      tal:attributes="src string:${context/portal_url}/photos_heb/${hebergement/getVignette}"/>
                 <span id="capacite">
-                  <img src="picto/capacite.png"
+                  <img src="capacite.png"
                        title="Capacité"
                        alt="Capacité" />
                   <span tal:replace="string:${hebergement/heb_cgt_cap_min}/${hebergement/heb_cgt_cap_max}"/>
