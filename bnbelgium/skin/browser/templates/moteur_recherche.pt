@@ -73,7 +73,7 @@
                         Calendar.setup({
                         inputField: 'form.fromDate',
                         button: 'form.fromDate_trigger',
-                        ifFormat: '%d %b %Y'
+                        ifFormat: '%d/%m/%Y'
                         });
                      </script>
                      <br/>
@@ -95,7 +95,7 @@
                               Calendar.setup({
                               inputField: 'form.toDate',
                               button: 'form.toDate_trigger',
-                              ifFormat: '%d %b %Y'
+                              ifFormat: '%d/%m/%Y'
                               });
                       </script>
                      <br/>
