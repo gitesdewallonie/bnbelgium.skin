@@ -90,19 +90,6 @@
       <table id="portal-columns">
         <tbody>
           <tr>
-            <tal:comment replace="nothing"> Start of the left column </tal:comment>
-            <td id="portal-column-one"
-                metal:define-slot="column_one_slot"
-                tal:condition="sl">
-              <div class="visualPadding">
-                <metal:portlets define-slot="portlets_one_slot">
-                  <tal:block replace="structure provider:plone.leftcolumn" />
-                </metal:portlets>
-                &nbsp;
-              </div>
-            </td>
-            <tal:comment replace="nothing"> End of the left column </tal:comment>
-
             <tal:comment replace="nothing"> Start of main content block </tal:comment>
             <td id="portal-column-content"
                 tal:define="tabindex python:Iterator(mainSlot=False)">
@@ -155,19 +142,6 @@
               </metal:block>
             </td>
             <tal:comment replace="nothing"> End of main content block </tal:comment>
-
-            <tal:comment replace="nothing"> Start of right column </tal:comment>
-            <td id="portal-column-two"
-                metal:define-slot="column_two_slot"
-                tal:condition="sr">
-              <div class="visualPadding">
-                <metal:portlets define-slot="portlets_two_slot">
-                  <tal:block replace="structure provider:plone.rightcolumn" />
-                </metal:portlets>
-                &nbsp;
-              </div>
-            </td>
-            <tal:comment replace="nothing"> End of the right column </tal:comment>
           </tr>
         </tbody>
       </table>
