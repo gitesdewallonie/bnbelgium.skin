@@ -347,10 +347,15 @@ left:auto;
 right:auto;
 margin-left:-5.5px;
 }
+
+.pullquote {
+background-color:transparent;
+}
+
 /*** FIN OUTIL PROMO ***/
 
 
-/*** STYLE EDIEUR KUPU ***/
+/*** STYLE EDITEUR KUPU ***/
 table.plain, table.plain td, table.plain th {
 border:0px solid #CCCCCC;
 border-collapse:collapse;
