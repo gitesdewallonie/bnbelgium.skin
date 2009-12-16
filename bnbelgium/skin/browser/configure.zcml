@@ -32,6 +32,13 @@
 
     <browser:page
         for="*"
+        name="addInterface"
+        class=".migration.Migration"
+        permission="zope.Public"
+        />
+
+    <browser:page
+        for="*"
         name="moteur_recherche_view"
         class=".moteur_recherche.BNBMoteurRecherche"
         layer=".interfaces.IBNBelgiumTheme"
