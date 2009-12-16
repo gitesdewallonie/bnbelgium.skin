@@ -692,7 +692,76 @@ text-align:center;
 /*** FIN DESCRIPTION D'UN HEBERGEMENT ***/
 
 
+/*** SEJOURS FUTES ***/
+.sejour_fute_container #title{
+font-size:16px;
+font-weight:bold;
+}
 
+.sejour_fute_container fieldset{
+margin-top:10px;
+padding-top:10px;
+}
+
+#div_sejours_futes{
+width:99.5%;
+float:left;
+}
+
+.sejour_fute_container #description{
+font-size:11px;
+font-weight:bold;
+color:black;
+text-decoration:none;
+}
+
+.sejour_fute_container #logo{
+float: left;
+vertical-align:text-top;
+margin-right: 10px;
+margin-bottom: 2px;
+}
+/*** FIN SEJOURS FUTES ***/
+
+
+/*** IDEES SEJOURS ***/
+div #idee-sejour-heb-list {
+margin: 0px 20px 0px 20px;
+}
+
+.pullquote {
+background-color:transparent;
+}
+
+#div_idee_sejours{
+width:99.5%;
+float:left;
+}
+
+.idee_sejours_container #title{
+font-size:16px;
+font-weight:bold;
+}
+
+.idee_sejours_container fieldset{
+margin-top:10px;
+padding-top:10px;
+}
+
+.idee_sejours_container #description{
+font-size:11px;
+font-weight:bold;
+color:black;
+text-decoration:none;
+}
+
+.idee_sejours_container #logo{
+float: left;
+vertical-align:text-top;
+margin-right: 10px;
+margin-bottom: 2px;
+}
+/*** FIN IDEES SEJOURS ***/
 
 
 /*** PORTAL FOOTER ***/
