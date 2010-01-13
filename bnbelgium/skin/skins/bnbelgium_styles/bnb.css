@@ -295,7 +295,7 @@ padding:1em;
 dl.portlet {
 background-color:#DEE7EC;
 margin:0px 5px 9px 5px;
-height:215px;
+height:265px;
 }
 
 dt.portletHeader {
@@ -346,6 +346,10 @@ text-align:center;
 left:auto;
 right:auto;
 margin-left:-5.5px;
+}
+
+#derniere-minute-vignette{
+width:140px;
 }
 
 .pullquote {
