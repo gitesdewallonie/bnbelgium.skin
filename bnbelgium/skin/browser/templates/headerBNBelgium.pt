@@ -1,4 +1,5 @@
 <div id="header-BNBelgium">
+  <!--
   <object type="application/x-shockwave-flash"
           data="gdw_bandeau.swf"
           style="width:950px;height:165px;">
@@ -13,5 +14,6 @@
     <param name="menu"
            value="true" />
   </object>
+  -->
 </div>
 <!--<div class="visualClear"></div>-->

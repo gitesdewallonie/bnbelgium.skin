@@ -1,3 +1,4 @@
+<!--
 <div id="zone-menu"
      tal:define="translate nocall:context/@@getTranslatedObjectUrl">
        <table cellspacing="0">
@@ -37,3 +38,4 @@
          </tr>
        </table>
 </div>
+-->
