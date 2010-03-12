@@ -22,7 +22,7 @@
     
     <order manager="plone.portalheader" skinname="BNBelgium Skin">
         <viewlet name="BNBelgium.header"/>
-        <viewlet name="BNBelgium.menu_sup"/>
+        <!--<viewlet name="BNBelgium.menu_sup"/>-->
         <viewlet name="BNBelgium.languageselector" />
     </order>
 
