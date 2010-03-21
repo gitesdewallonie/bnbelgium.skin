@@ -6,27 +6,17 @@
 */
 
 body{
-background-color : #26235d; /*#16223f;*/
+background-color : #26235d;
 background-image : url(bck_coq.png);
 background-repeat : repeat;
+background-attachment: fixed;
 }
 
-.documentContent {
-background-color: #F0F3F6;
+#main-content{
+width:974px;
+margin:auto;
+/*border:1px solid #f00;*/
 }
-
-.documentActions {
-display: none;
-}
-
-#content {
-margin-bottom: 1em;
-}
-
-h1 {
-margin-top: 0px;
-}
-
 
 /*** PORTAL-TOP ***/
 #portal-top {
@@ -34,7 +24,7 @@ background-color:transparent;
 margin-left:auto;
 margin-right:auto;
 padding:0;
-width:950px !important;
+/*width:968px !important;*/
 }
 
 
@@ -42,9 +32,24 @@ width:950px !important;
 #header-BNBelgium{
 background-image:url(bandeau_sup.png);
 background-repeat:no-repeat;
-width:968px !important;
-height:163px;
+background-position:right top;
+width:960px !important;
+height:150px;
 text-align:center;
+}
+
+#bnb-logo{
+position:relative;
+top:13px;
+left:9px;
+width:186px;
+height:88px;
+}
+
+#bnb-logo a{
+display:block;
+width:189px;
+height:88px;
 }
 
 
@@ -58,7 +63,7 @@ list-style-position:outside;
 list-style-type:none;
 padding:0 0 0 2em;
 white-space:nowrap;
-width:950px !important;
+/*width:968px !important;*/
 margin-left:auto;
 margin-right:auto;
 }
@@ -66,20 +71,20 @@ margin-right:auto;
 
 /*** LANGUAGE SELECTOR ***/
 #portal-languageselector {
-float:right;
-margin-right:12px;
-margin-top:2px;
-font-size:1.1em;
+position:absolute;
+margin-left:85px;
+margin-top:6px;
+font-size:0.9em;
+text-align:right;
 }
 #portal-languageselector a {
 text-transform:uppercase;
-color:#b8bbd9;
+color:#aaa;
 text-decoration:none;
 padding-left:5px;
 }
 #portal-languageselector a:hover {
 color:#fff;
-text-decoration:underline;
 }
 
 
@@ -97,7 +102,7 @@ margin:0;
 padding:0 3em;
 text-align:right;
 text-transform:none;
-width:950px !important;
+/*width:968px !important;*/
 margin-left:auto;
 margin-right:auto;
 }
@@ -110,28 +115,114 @@ padding-right:2em;
 text-transform:none;
 margin-left:auto;
 margin-right:auto;
-width:950px !important;
+/*width:968px !important;*/
 }
+
+
+/*** NAVIGATION BOX LEFT COLUMN ***/
+.navTreeItem a, dd.portletItem .navTreeItem a {
+border:0px solid #15142f;
+display:block;
+padding-bottom:0.25em;
+padding-top:0.2em;
+text-decoration:none;
+text-align:right;
+color:#fff;
+}
+
+.navTreeItem a:hover, dd.portletItem .navTreeItem a:hover {
+border:0px solid #15142f;
+background-color:transparent;
+color:#00c2ff;                   /*#453cd6;*/
+}
+
+
 
 
 /*** MAIN TABLEAU ***/
 #portal-columns {
 border-collapse:collapse;
 border-spacing:0;
-width:950px !important;
-margin-left:auto;
-margin-right:auto;
+width:961px !important;
 background-color:transparent;
 }
 
 /*** COLONNE GAUCHE ***/
 #portal-column-one {
-background-image:url(bck_left_column.png);
+/*border:1px solid #ff0;*/
+/*background-color:#15142f;*/
+background-image:url(motif_repetitif_menu.png);
 background-repeat:repeat-y;
 border-collapse:collapse;
 padding:0;
 vertical-align:top;
-width:200px;
+width:196px;
+}
+
+#portal-column-one .visualPadding {
+padding:3em 16px 1em 5px;
+}
+
+#portal-column-content {
+background-color:#ebeaf2;
+border-collapse:collapse;
+margin:0 0 2em;
+padding:0 0 0;
+vertical-align:top;
+}
+
+
+/*** DOCUMENT CONTENT ***/
+.documentContent  {
+background-color: #ebeaf2;
+font-size:110%;
+padding:1em 1em 2em !important;
+}
+
+.documentEditable {
+margin:0 0;
+padding:0 1em 1em !important;
+width:768px;
+}
+
+.documentActions {
+display: none;
+}
+
+.documentContent dd a {
+border-bottom:0px solid #CCCCCC;
+text-decoration:none;
+}
+
+#content {
+margin-bottom: 1em;
+}
+
+#content-news h1 {
+margin-bottom:1em;
+}
+
+h1 {
+margin-top:0;
+font-size:1.3em;
+border-bottom:1px solid #8CACBB;
+font-weight:normal;
+color:#443cd6;
+text-align:right;
+}
+
+
+
+/*** BAS PAGE ***/
+/* ce n'est pas le footer, mais une ligne de plus à table content*/
+#bas-colonne-gauche{
+height:237px;
+background-image:url(degrade_bas_menu.png);
+text-align:center;
+
+}
+#bas-colonne-center{
+background-image:url(hachures_bas_contenu.png);
 }
 
 
@@ -209,13 +300,15 @@ color:#b8bbd9;
 color:#fff;
 }
 
-/* RECHERCHE */
+
+
+/**** MOTEUR RECHERCHE ****/
 div.formHelp {
 display: none;
 }
 
 #moteur-recherche {
-width:786px;
+/*width:748px;*/
 text-align:center;
 margin-left:auto;
 margin-right:auto;
@@ -228,7 +321,9 @@ padding:0px;
 
 .label-recherche {
 text-transform: uppercase;
+color:#3a337f;
 }
+
 
 #zone-rechercher {
 /*width: 786px;*/
@@ -239,32 +334,42 @@ margin-bottom: 15px;
 }
 
 #moteur-form-cell {
-background-color:#2B3049;
-color:#FFFFFF;
+background-image:url(bck_moteur_recherche.png);
+background-repeat:no-repeat;
 }
 
 #moteur-form {
 text-align: left;
-padding-left: 30px;
+padding-left: 45px;
+}
+
+#form-action-search input{
+background-color:transparent;
+background-image:url(bck_btn_rechercher.png);
+border:none;
+height:19px;
+width:99px;
+}
+
+#form-button-go{
+background-color:transparent;
+border:none;
+color:#fff;
+background-image:url(bck_btn_go.png);
 }
 
 #moteur-ref-cell {
-background-color:#DCE5EE;
 }
 
 #moteur-ref {
-text-align: left;
-padding-left: 30px;
+text-align:left;
+padding-left:20px;
+padding-top:18px;
 }
 
 #moteur-carte {
-width:346px;
-height:218px;
-font-size:1.1em;
-font-weight: bold;
-font-variant:small-caps;
-color:#bc0000;
-float:right;
+margin-left:10px;
+width:378px;
 }
 
 /*** FIN HOME PAGE ***/
@@ -272,13 +377,17 @@ float:right;
 
 /*** DEBUT OUTIL PROMO ***/
 /* Séjours Futés - Dernière minute - Idées Séjours - La boutique */
+.masquer-titre{
+visibility:hidden;
+background-color:transparent;
+}
+
 #zone-portlet {
-width: 786px;
+width: 700px;
 margin-left: auto;
 margin-right: auto;
-margin-top: 15px;
-margin-bottom: 15px;
-background-color:#31305B;
+margin-top: 35px;
+background-color:transparent;
 }
 
 #zone-portlet table {
@@ -287,6 +396,7 @@ margin-right:auto;
 height: 180px;
 padding-left:6px;
 padding-right:6px;
+/*background-color:#e7e7ef;*/
 }
 
 #zone-portlet div {
@@ -298,6 +408,21 @@ padding-left:0px;
 padding-right:0px;
 }
 
+#bnb-portlet-title{
+text-align:center;
+margin-bottom:17px;
+}
+
+.bnb-porlet-image{
+margin-bottom:6px;
+}
+
+.portlet {
+background-color:transparent;
+border:1px solid #524bbe;
+margin:1px 0 1em;
+}
+
 .portletItem {
 border-left:none;
 border-right:none;
@@ -306,9 +431,10 @@ padding:1em;
 }
 
 dl.portlet {
-background-color:#DEE7EC;
-margin:0px 5px 9px 5px;
-height:265px;
+background-color:transparent;
+margin:0px 29px 9px 5px;
+height:300px;
+text-align:center;
 }
 
 dt.portletHeader {
@@ -327,7 +453,6 @@ dd.portletItemSingle, dd.portletItem  {
 border:none;
 margin: 0em 1em;
 padding:1px 6px;
-width:143px;
 }
 
 dd.portletItemLast {
@@ -339,8 +464,12 @@ padding-top: 5px;
 /*width:123px;*/ <!-- nécessaire sinon problème avec IE dans colonne de droite-->
 }
 
+.portletFooter{
+visibility:hidden;
+}
+
 dd.portletFooter {
-background-color:#DEE7EC;
+background-color:transparent;
 border: none;
 border-top-style: none !important;
 margin: 5px 11px;
@@ -350,8 +479,20 @@ padding-right: 16px;
 width:132px;
 }
 
+/*masquage du footer classique pour ne pas modifier les
+portlets dans gites*/
 dd.portletFooter a img {
 display:none;
+}
+
+/* footer seleument actif dans bnb*/
+.bnbportletFooter{
+/*border:1px solid #F00;*/
+text-align:right;
+width:177px;
+position:relative;
+left:5px;
+top:-29px;
 }
 
 .portletItemDetails {
@@ -783,14 +924,12 @@ margin-bottom: 2px;
 
 /*** PORTAL FOOTER ***/
 #footer-BNBelgium {
-background-color:#DEE7EC;
-border-bottom:1px solid #8CACBB;
-border-top:1px solid #8CACBB;
+background-color:transparent;
+border-bottom:0px solid #8CACBB;
+border-top:0px solid #8CACBB;
 line-height:1.2em;
-margin-top:-25px;
 margin-left:auto;
 margin-right:auto;
 padding:0.5em 0 1em;
 text-align:center;
-width:950px !important;
 }

@@ -31,7 +31,9 @@
         <viewlet name="BNBelgium.outils-promo" />
     </order>
 
+<!--
     <order manager="plone.portalfooter" skinname="BNBelgium Skin">
         <viewlet name="BNBelgium.footer" />
     </order>
+-->
 </object>

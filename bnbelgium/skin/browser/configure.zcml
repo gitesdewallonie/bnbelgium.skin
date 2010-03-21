@@ -14,6 +14,13 @@
         name="BNBelgium Skin"
         />
 
+    <!-- Customize the navigation portlet -->
+    <plone:portletRenderer
+           portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
+           layer=".interfaces.IBNBelgiumTheme"
+           class=".navigation.MyNavRenderer"
+            />
+
     <browser:page
         for="*"
         name="bnb_homepage"
