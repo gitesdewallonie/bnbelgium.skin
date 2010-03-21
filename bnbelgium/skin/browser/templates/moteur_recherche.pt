@@ -98,41 +98,24 @@
                               ifFormat: '%d/%m/%Y'
                               });
                       </script>
-                     <br/>
-
-                   <div id="chercher">
+                    <br/>
+                    <br/>
                     <input type="hidden"
                            name="form.capacityMin"
                            value="2"/>
-                    <br/>
-
-                    <input type="submit"
-                           i18n:domain="gites"
-                           i18n:attributes="value action_search;"
-                           value="Rechercher"
-                           id="form.actions.search"
-                           name="form.actions.search" />
-                    <br/><br/>
-                   </div>
+                           
+                    <div id="form-action-search">
+                        <input type="submit"
+                               i18n:domain="gites"
+                               i18n:attributes="value action_search;"
+                               value="Rechercher"
+                               id="form.actions.search"
+                               name="form.actions.search" />
+                    </div>
                 </form>
             </div>
-         </td>
-         <td rowspan="2">
-            <div id="moteur-carte">
-                <a href="hebergement_map"
-                   i18n:translate="recherche_cartographique"
-                   tal:attributes="href string:${context/absolute_url}/map">
-                   <img src=""
-                        tal:attributes="src python:'wallonie_%s.gif' % request.LANGUAGE"
-                        alt="Wallonie"
-                        title="wallonie" />
-                </a>
-            </div>
-         </td>
-      </tr>
-      <tr>
-         <td id="moteur-ref-cell">
-           <div id="moteur-ref">
+            <br />
+            <div id="moteur-ref">
                 <form action=""
                       tal:attributes="action string:${here/portal_url}/moteur_recherche_view/getHebergementByPk"
                       method="post">
@@ -140,16 +123,31 @@
                       <label i18n:domain="gites"
                              i18n:translate="label_reference"
                              class="label-recherche">Recherche rapide</label>
-                      <p i18n:domain="gites"
-                         i18n:translate="encoder_reference">Encoder la r&eacute;f&eacute;rence de la chambre d'hôtes</p>
+                      <div i18n:domain="gites"
+                         i18n:translate="encoder_reference">
+                         Encoder la r&eacute;f&eacute;rence de la chambre d'hôtes</div>
                       <input type="text"
                              name="heb_pk"
                              value=""
                              size="4" />
-                      <input type="submit" value="GO" />
+                      <input type="submit"
+                             id="form-button-go"
+                             value="GO" />
                   </div>
                </form>
            </div>
+         </td>
+         <td align="left" valign="top">
+            <div id="moteur-carte">
+                <a href="hebergement_map"
+                   i18n:translate="recherche_cartographique"
+                   tal:attributes="href string:${context/absolute_url}/map">
+                   <img src=""
+                        tal:attributes="src python:'wallonie_%s.png' % request.LANGUAGE"
+                        alt="Wallonie"
+                        title="wallonie" />
+                </a>
+            </div>
          </td>
       </tr>
    </table>

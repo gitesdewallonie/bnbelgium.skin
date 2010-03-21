@@ -1,4 +1,8 @@
 <div id="header-BNBelgium">
+    <div id="bnb-logo">
+        <a href=""
+           tal:attributes="href string: ${context/portal_url}"></a>
+    </div>
   <!--
   <object type="application/x-shockwave-flash"
           data="gdw_bandeau.swf"

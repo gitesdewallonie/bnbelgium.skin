@@ -79,6 +79,8 @@
 
   <body tal:attributes="class string:${here/getSectionFromURL} template-${template/id};
                         dir python:test(isRTL, 'rtl', 'ltr')">
+                        
+<div id="main-content">
     <div id="visual-portal-wrapper">
 
       <div id="portal-top" i18n:domain="plone">
@@ -156,6 +158,11 @@
             </td>
             <tal:comment replace="nothing"> End of main content block </tal:comment>
           </tr>
+          <tr>
+              <td id="bas-colonne-gauche">
+                  <a href="http://www.gitesdewallonie.be" target="_blank"><img src="logoGDW_web2.png" /></a></td>
+              <td id="bas-colonne-center"><div tal:replace="structure provider:plone.portalfooter" /></td>
+          </tr>
         </tbody>
       </table>
       <tal:comment replace="nothing"> end column wrapper </tal:comment>
@@ -172,15 +179,16 @@
           </a>
       </div>
 
+<!--
       <metal:block i18n:domain="plone">
-
         <div tal:replace="structure provider:plone.portalfooter" />
-
       </metal:block>
+-->
 
       <div class="visualClear"><!-- --></div>
     </div>
 <div id="kss-spinner"><img tal:attributes="src string:${portal_url}/spinner.gif" alt="" /></div>
+</div>
 </body>
 </html>
 </metal:page>

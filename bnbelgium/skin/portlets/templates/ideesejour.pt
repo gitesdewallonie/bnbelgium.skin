@@ -10,8 +10,8 @@
       <dl class="portlet">
          <dt class="portletHeader"
              i18n:translate="idees_sejours">
-           <!--titre-->
-           Idées Séjour
+           <!--titre Idées Séjour-->
+           <img src="titre_idees-sejours.png" />
          </dt>
 
          <dd class="portletItemSingle">
@@ -43,6 +43,17 @@
 
       </dl>
    </div>
+
+<div class="bnbportletFooter">
+        <a href=""
+           class="tile"
+           tal:attributes="href sejours_link">
+           <span i18n:translate="all_sejour_fute">Tous</span>
+           <img src="fleche_grise.png" border="0" />
+        </a>
+</div>
+
+
 </div>
 </body>
 </html>

@@ -12,6 +12,7 @@
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
             <span i18n:translate="derniere_minutes">Dernière minute</span>
+            <img src="titre_dernieres-minutes.png" />
         <span class="portletTopRight"></span>
     </dt>
 
@@ -63,7 +64,15 @@
         <span class="portletBottomRight"></span>
     </dd>
 </dl>
-
+<div class="bnbportletFooter">
+         <a href=""
+           class="tile"
+           tal:attributes="href sejours_link">
+           <span i18n:translate="all_sejour_fute">Tous</span>
+           <img src="fleche_grise.png" 
+                border="0" />
+        </a>
+</div>
 
 </div>
 </body>
