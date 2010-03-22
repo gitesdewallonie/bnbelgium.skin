@@ -98,6 +98,7 @@
                 tal:condition="sl">
               <div class="visualPadding">
                 <metal:portlets define-slot="portlets_one_slot">
+                  <div tal:replace="structure provider:BNBelgium.selectorLanguagesLeftColumn" />
                   <tal:block replace="structure provider:plone.leftcolumn" />
                 </metal:portlets>
                 &nbsp;

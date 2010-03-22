@@ -13,6 +13,13 @@ class IPromoOutil(IViewletManager):
     """
 
 
+class ISelectorLanguagesLeftColumn(IViewletManager):
+    """
+    Viewelet manager qui gere le selecteur de langue 
+    dans top left column
+    """
+
+
 class IBNBelgiumTheme(IDefaultPloneLayer):
     """
     Theme for BNBelgium
