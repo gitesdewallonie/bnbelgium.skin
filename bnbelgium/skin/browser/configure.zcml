@@ -128,7 +128,7 @@
     <!-- Selecteur de langue -->
     <browser:viewlet
           name="BNBelgium.languageselector"
-          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          manager=".interfaces.ISelectorLanguagesLeftColumn"
           class=".viewlets.BNBTranslatableLanguageSelector"
           permission="zope.Public"
           layer=".interfaces.IBNBelgiumTheme"

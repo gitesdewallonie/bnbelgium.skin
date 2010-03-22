@@ -6,12 +6,13 @@
         <viewlet name="plone.logo" />
         <viewlet name="plone.searchbox" />
         <viewlet name="plone.global_sections" />
+        <viewlet name="plone.app.i18n.locales.languageselector"/>
+        <viewlet name="BNBelgium.languageselector" />
     </hidden>
 
     <hidden manager="plone.portaltop" skinname="BNBelgium Skin">
         <viewlet name="plone.path_bar"/>
         <viewlet name="plone.personal_bar"/>
-        <viewlet name="plone.app.i18n.locales.languageselector"/>
     </hidden>
 
     <hidden manager="plone.portalfooter" skinname="BNBelgium Skin">
