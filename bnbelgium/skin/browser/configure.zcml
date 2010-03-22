@@ -61,13 +61,23 @@
       permission="zope.Public"
       />
 
-    <!-- viewletmanger de la homepage pour les viewlet de promo-->
+    <!-- Homepage :: viewletmanger de la homepage pour les viewlet de promo-->
     <browser:viewletManager
         name="BNBelgium.promoOutil"
         provides=".interfaces.IPromoOutil"
         permission="zope2.View"
         class="plone.app.viewletmanager.manager.OrderedViewletManager"
         />
+
+    <!-- Homepage :: viewletmanger de la homepage pour placer le selecteur de langue 
+         dans le sommet de colonne de gauche -->
+    <browser:viewletManager
+        name="BNBelgium.selectorLanguagesLeftColumn"
+        provides=".interfaces.ISelectorLanguagesLeftColumn"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        />
+
 
     <!-- Home page :: header with flash animation viewlet -->
     <browser:viewlet
@@ -106,7 +116,7 @@
         permission="zope.Public"
         />
 
-    <!-- Home page :: header with flash animation viewlet -->
+    <!-- Home page :: footer viewlet -->
     <browser:viewlet
         name="BNBelgium.footer"
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
