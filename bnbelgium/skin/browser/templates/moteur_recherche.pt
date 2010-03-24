@@ -124,8 +124,10 @@
                              i18n:translate="label_reference"
                              class="label-recherche">Recherche rapide</label>
                       <div i18n:domain="gites"
-                         i18n:translate="encoder_reference">
-                         Encoder la r&eacute;f&eacute;rence de la chambre d'hôtes</div>
+                           i18n:translate="encoder_reference"
+                           id="texte-ref">
+                         Encoder la r&eacute;f&eacute;rence<br />
+                         de la chambre d'hôtes</div>
                       <input type="text"
                              name="heb_pk"
                              value=""
