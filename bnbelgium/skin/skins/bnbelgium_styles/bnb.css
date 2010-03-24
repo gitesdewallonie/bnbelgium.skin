@@ -365,6 +365,11 @@ padding-left:20px;
 padding-top:18px;
 }
 
+#texte-ref{
+width:240px;
+padding-left:10px;
+}
+
 #moteur-carte {
 margin-left:10px;
 width:378px;
@@ -475,22 +480,6 @@ padding-bottom: 10px;
 padding-top: 0px;
 padding-right: 16px;
 width:132px;
-}
-
-/*masquage du footer classique pour ne pas modifier les
-portlets dans gites*/
-dd.portletFooter a img {
-display:none;
-}
-
-/* footer seleument actif dans bnb*/
-.bnbportletFooter{
-/*border:1px solid #F00;*/
-text-align:right;
-width:177px;
-position:relative;
-left:5px;
-top:-29px;
 }
 
 .portletItemDetails {
@@ -930,4 +919,34 @@ margin-left:auto;
 margin-right:auto;
 padding:0.5em 0 1em;
 text-align:center;
+}
+/*** FIN PORTAL FOOTER ***/
+
+
+
+
+/*** MASQUAGE DES OBJETS VENAT DE GDW ***/
+
+/*
+masquage du footer classique 
+pour ne pas modifier les
+portlets dans gites
+*/
+dd.portletFooter a img {
+display:none;
+}
+
+/* footer seleument actif dans bnb*/
+.bnbportletFooter{
+/*border:1px solid #F00;*/
+text-align:right;
+width:177px;
+position:relative;
+left:5px;
+top:-29px;
+}
+
+#portlet-je-suis, #portlet-outil, 
+#portlet-partenaires, #portlet-menu-idee-sejour{
+display:none;
 }
