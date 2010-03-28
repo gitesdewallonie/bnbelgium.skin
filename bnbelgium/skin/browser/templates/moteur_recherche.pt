@@ -67,8 +67,11 @@
                             type="text" 
                             value="" 
                             size="10" 
-                            name="form.fromDate"/>
-                     <input id="form.fromDate_trigger" type="button" value="..."/>
+                            name="form.fromDate" />
+                     <input id="form.fromDate_trigger"
+                            type="button"
+                            class="form-button-calendar"
+                            value="" />
                      <script type="text/javascript">
                         Calendar.setup({
                         inputField: 'form.fromDate',
@@ -87,10 +90,11 @@
                              type="text" 
                              value="" 
                              size="10" 
-                             name="form.toDate"/>
+                             name="form.toDate" />
                       <input id="form.toDate_trigger" 
-                             type="button" 
-                             value="..."/>
+                             type="button"
+                             class="form-button-calendar" 
+                             value="" />
                       <script type="text/javascript">
                               Calendar.setup({
                               inputField: 'form.toDate',

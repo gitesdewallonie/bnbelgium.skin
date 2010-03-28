@@ -356,6 +356,15 @@ color:#fff;
 background-image:url(bck_btn_go.png);
 }
 
+.form-button-calendar{
+background-color:transparent;
+border:none;
+color:#fff;
+background-image:url(bnb_clandrier.png);
+height:16px;
+width:16px;
+}
+
 #moteur-ref-cell {
 }
 
