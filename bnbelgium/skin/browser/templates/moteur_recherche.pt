@@ -146,8 +146,8 @@
                    tal:attributes="href string:${context/absolute_url}/map">
                    <img src=""
                         tal:attributes="src python:'wallonie_%s.png' % request.LANGUAGE"
-                        alt="Wallonie"
-                        title="wallonie" />
+                        alt="BnB Wallonie"
+                        title="BnB Wallonie" />
                 </a>
             </div>
          </td>
