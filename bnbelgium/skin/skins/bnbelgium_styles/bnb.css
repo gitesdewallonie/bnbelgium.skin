@@ -381,7 +381,7 @@ width:378px;
 /*** DEBUT OUTIL PROMO ***/
 /* Séjours Futés - Dernière minute - Idées Séjours - La boutique */
 .masquer-titre{
-visibility:hidden;
+display:none;
 background-color:transparent;
 }
 
