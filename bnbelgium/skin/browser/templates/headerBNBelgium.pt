@@ -19,5 +19,11 @@
            value="true" />
   </object>
   -->
+    <div id="gdw-lien">
+        <a href="http://www.gitesdewallonie.be" 
+           target="_blank"
+           alt="Gites de Wallonie"
+           title="Gites de Wallonie"></a>
+    </div>
 </div>
 <!--<div class="visualClear"></div>-->

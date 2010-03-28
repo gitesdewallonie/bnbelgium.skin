@@ -52,6 +52,26 @@ width:189px;
 height:88px;
 }
 
+#gdw-lien {
+position:relative;
+background-color:transparent;
+left:907px;
+top:62px;
+width:25px;
+height:12px;
+}
+
+
+#gdw-lien a{
+display:block;
+width:25px;
+height:12px;
+}
+
+#gdw-lien a:hover{
+background-color:#0f0;
+}
+
 
 /*** GLOBAL NAV (les onglets) ***/
 #portal-globalnav {
