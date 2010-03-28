@@ -133,7 +133,12 @@ def setupSubSiteSkin(portal):
     portal_props = getToolByName(portal, 'portal_properties')
     editskin_props = portal_props.get('editskin_switcher')
     editskin_props.switch_skin_action = 'based on specific domains'
-    editskin_props.specific_domains = ("http://www.bnbelgium.be/gites", )
+    specDomains = ["http://www.bnbelgium.be/plone",
+                   "http://bnb2.affinitic.be/plone"]
+    for i in editskin_props.getProperty('specific_domains'):
+    	if i not in specDomains:
+	    specDomains.append(i)
+    editskin_props.specific_domains = tuple(specDomains)
     editskin_props.edit_skin = "BNBelgium Skin"
 
 
