@@ -195,6 +195,9 @@ vertical-align:top;
 background-color: #ebeaf2;
 font-size:110%;
 padding:1em 1em 2em !important;
+background-image:url(lecoq.png);
+background-repeat:no-repeat;
+background-position:right bottom;
 }
 
 .documentEditable {
@@ -955,7 +958,7 @@ text-align:center;
 
 
 
-/*** MASQUAGE DES OBJETS VENAT DE GDW ***/
+/*** MASQUAGE DES OBJETS VENANT DE GDW ***/
 
 /*
 masquage du footer classique 
