@@ -144,6 +144,7 @@ border:0px solid #15142f;
 display:block;
 padding-bottom:0.25em;
 padding-top:0.2em;
+padding-right:5px;
 text-decoration:none;
 text-align:right;
 color:#fff;
@@ -155,6 +156,11 @@ background-color:transparent;
 color:#00c2ff;                   /*#453cd6;*/
 }
 
+.navTreeCurrentItem {
+border:1px solid #00c2ff !important;
+background-color:transparent;
+color:#00c2ff;                   /*#453cd6;*/
+}
 
 
 
