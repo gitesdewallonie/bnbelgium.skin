@@ -357,6 +357,7 @@ margin-bottom: 15px;
 #moteur-form-cell {
 background-image:url(bck_moteur_recherche.png);
 background-repeat:no-repeat;
+height:365px;
 }
 
 #moteur-form {
@@ -393,8 +394,8 @@ width:16px;
 
 #moteur-ref {
 text-align:left;
-padding-left:20px;
-padding-top:18px;
+padding-left:40px;
+padding-top:15px;
 }
 
 #texte-ref{
