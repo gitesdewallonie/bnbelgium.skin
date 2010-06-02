@@ -132,6 +132,7 @@ class BNBSearchHebergement(SearchHebergement):
         hebergementTypes = ['CH', 'MH', 'CHECR']
         hebergementType = self.translateTypes(hebergementTypes)
         query = query.filter(hebergementTable.heb_typeheb_fk.in_(hebergementType))
+        query = query.filter(hebergementTable.heb_site_public == '1')
         if classification and classification != -1:
             query = query.filter(and_(episTable.heb_nombre_epis == classification,
                                       hebergementTable.heb_pk==episTable.heb_pk))
