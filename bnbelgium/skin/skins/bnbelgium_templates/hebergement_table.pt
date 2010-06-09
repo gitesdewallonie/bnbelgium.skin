@@ -41,5 +41,5 @@
 
               <div i18n:translate="not_hebergement_correspondant"
                    class="error"
-                   tal:condition="not:hebergements">Il n'y a aucun hébergement correspondant &agrave; ces crit&egrave;res</div>
+                   tal:condition="not:hebergements">Il n'y a aucun h&eacute;bergement correspondant &agrave; ces crit&egrave;res</div>
 </tal:main>
