@@ -6,6 +6,7 @@
     i18n_domain="gites">
 
     <grok:grok package="bnbelgium.skin.browser.sejourfute"/>
+    <grok:grok package="bnbelgium.skin.browser.ideesejour"/>
 
     <!-- 'BNBelgium Skin' Zope 3 browser layer -->
     <interface
