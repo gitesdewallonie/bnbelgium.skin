@@ -62,31 +62,19 @@ class BNBSearchHebergement(SearchHebergement):
                 return hebMin >= tarifMin and hebMin <= tarifMax
         return [heb for heb in results if isRangePricedHeb(heb)]
 
-    def sortSearchResults(self, results, commune, localite):
+    def sortSearchResults(self, results, communeLocalite):
         """
-        si le visiteur choisit une localité > hébergements de la localité
-                                              (en premier) + de la commune
-        si le visiteur choisit une commune > hébergements situés sur la localité
-                                             identique à la commune (en premier)
-                                             + tous les hébergements de la commune.
+        les hébergements de la commune / localité recherchée doivent
+        apparaître en premier
         """
         sortedResults = []
-        if localite:
-            firstResults = []
-            nextResults = []
-            for heb in results:
-                if heb.heb_localite == localite:
-                    firstResults.append(heb)
-                else:
-                    nextResults.append(heb)
-        else:
-            firstResults = []
-            nextResults = []
-            for heb in results:
-                if heb.heb_localite == commune:
-                    firstResults.append(heb)
-                else:
-                    nextResults.append(heb)
+        firstResults = []
+        nextResults = []
+        for heb in results:
+            if heb.heb_localite == communeLocalite:
+                firstResults.append(heb)
+            else:
+                nextResults.append(heb)
         sortedResults = firstResults + nextResults
         return sortedResults
 
@@ -95,12 +83,14 @@ class BNBSearchHebergement(SearchHebergement):
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
         hebergementTable = wrapper.getMapper('hebergement')
+        proprioTable = wrapper.getMapper('proprio')
         reservationsTable = wrapper.getMapper('reservation_proprio')
         communeTable = wrapper.getMapper('commune')
         episTable = wrapper.getMapper('link_hebergement_epis')
         hebergementType = data.get('hebergementType')
         communesLocalites = data.get('commune')
         tarif = data.get('tarif')
+        communeLocalite = data.get('commune')
         classification = data.get('classification')
         capacityMin = data.get('capacityMin')
         fromDate = data.get('fromDate')
@@ -112,27 +102,22 @@ class BNBSearchHebergement(SearchHebergement):
         utranslate = translation_service.utranslate
         lang = self.request.get('LANGUAGE', 'en')
 
-        query = session.query(hebergementTable).join('province')
+        query = session.query(hebergementTable).join('province').join('proprio')
+        query = query.filter(hebergementTable.heb_site_public == '1')
+        query = query.filter(proprioTable.pro_etat == True)
 
-        communeNom = ''
-        localite = ''
-        if communesLocalites and communesLocalites != '-1':
-            placeType, placeName = communesLocalites.split('|')
-            if placeType == 'C':
+        if communeLocalite and communeLocalite != '-1':
+            relatedCommune = self.getCommuneForLocalite(communeLocalite)
+            if relatedCommune:
                 query = query.filter(and_(hebergementTable.heb_com_fk == communeTable.com_pk,
-                                          communeTable.com_nom == placeName))
-                communeNom = placeName
-                localite = placeName
+                                          or_(communeTable.com_nom == communeLocalite,
+                                              communeTable.com_nom == relatedCommune.com_nom)))
             else:
-                relatedCommune = self.getCommuneForLocalite(placeName)
                 query = query.filter(and_(hebergementTable.heb_com_fk == communeTable.com_pk,
-                                          communeTable.com_nom == relatedCommune.com_nom))
-                communeNom = relatedCommune.com_nom
-                localite = placeName
+                                          communeTable.com_nom == communeLocalite))
         hebergementTypes = ['CH', 'MH', 'CHECR']
         hebergementType = self.translateTypes(hebergementTypes)
         query = query.filter(hebergementTable.heb_typeheb_fk.in_(hebergementType))
-        query = query.filter(hebergementTable.heb_site_public == '1')
         if classification and classification != -1:
             query = query.filter(and_(episTable.heb_nombre_epis == classification,
                                       hebergementTable.heb_pk==episTable.heb_pk))
@@ -185,13 +170,13 @@ class BNBSearchHebergement(SearchHebergement):
         query = query.order_by(hebergementTable.heb_nom)
         results = query.all()
 
-        if tarif and tarif != -1:
+        if tarif and tarif != '-1':
             tarifRange = BNB_TARIFS[tarif]
             tarifMin = int(tarifRange['min'])
             tarifMax = tarifRange['max'] != -1 and int(tarifRange['max']) or None
             results = self.filterByPrice(results, tarifMin, tarifMax)
 
-        results = self.sortSearchResults(results, communeNom, localite)
+        results = self.sortSearchResults(results, communeLocalite)
         self.selectedHebergements = [hebergement.__of__(self.context.hebergement) for hebergement in results]
 
         nbResults = len(self.selectedHebergements)

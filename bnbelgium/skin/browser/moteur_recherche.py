@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from sets import Set
+from sqlalchemy import select, and_
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
@@ -77,31 +79,34 @@ class BNBMoteurRecherche(BrowserView):
         """
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
+
         communeTable = wrapper.getMapper('commune')
-        typeTable = wrapper.getMapper('type_heb')
+        proprioTable = wrapper.getMapper('proprio')
         hebergementTable = wrapper.getMapper('hebergement')
-        query = session.query(hebergementTable).join('type')
-        query = query.filter(typeTable.type_heb_code.in_(BNB_TYPES_HEB))
-        query = query.order_by(hebergementTable.heb_localite)
-        results = query.all()
-        communes = set()
-        for heb in results:
-            communes.add((heb.commune.com_nom, 'C'))
-            communes.add((heb.heb_localite, 'L'))
+        typeTable = wrapper.getMapper('type_heb')
 
-        def removeDuplicates(results):
-            uniqueResults = []
-            for result in results:
-                if result[1]=='C':
-                    if not (result[0], 'L') in results:
-                        uniqueResults.append(result)
-                else:
-                    uniqueResults.append(result)
-            return uniqueResults
+        query = select([communeTable.com_nom])
+        query.append_whereclause(and_(communeTable.com_pk == hebergementTable.heb_com_fk,
+                                      hebergementTable.heb_site_public == '1'))
+        query.append_whereclause(and_(hebergementTable.heb_pro_fk == proprioTable.pro_pk,
+                                      proprioTable.pro_etat == True))
+        query.append_whereclause(and_(hebergementTable.heb_typeheb_fk == typeTable.type_heb_pk,
+                                      typeTable.type_heb_code.in_(BNB_TYPES_HEB)))
+        result = query.distinct().execute().fetchall()
+        communes = [c.com_nom for c in result]
 
-        communes = removeDuplicates(communes)
-        communes.sort()
-        return communes
+        query = select([hebergementTable.heb_localite])
+        query.append_whereclause(hebergementTable.heb_site_public == '1')
+        query.append_whereclause(and_(hebergementTable.heb_pro_fk == proprioTable.pro_pk,
+                                      proprioTable.pro_etat == True))
+        query.append_whereclause(and_(hebergementTable.heb_typeheb_fk == typeTable.type_heb_pk,
+                                      typeTable.type_heb_code.in_(BNB_TYPES_HEB)))
+        result = query.distinct().execute().fetchall()
+        localites = [l.heb_localite for l in result]
+
+        communesLocalites = list(Set(communes + localites))
+        communesLocalites.sort()
+        return communesLocalites
 
     def getTarifs(self):
         """
