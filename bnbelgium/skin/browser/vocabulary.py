@@ -8,7 +8,7 @@ from zope.component import queryMultiAdapter
 
 class CommunesVocabulary(object):
     """
-    Vocabulaire pour les communes
+    Vocabulaire pour les communes et localités
     """
     implements(IVocabularyFactory)
 
@@ -20,18 +20,15 @@ class CommunesVocabulary(object):
 
     def __call__(self, context, name=None):
         """
-        return the commnune vocabulary in the db
+        return the commune vocabulary in the db
         """
         items = []
         blankTerm = SimpleTerm(value='-1', token='-1', title=' ')
         items.append(blankTerm)
         for commune in self.getCommunes(context):
-            placeType = commune[1]
-            placeName = commune[0]
-            optionValue = '%s|%s' % (placeType, placeName)
-            term = SimpleTerm(value=unicode(optionValue),
-                              token=unicode(optionValue),
-                              title=placeName)
+            term = SimpleTerm(value=commune,
+                              token=commune,
+                              title=commune)
             items.append(term)
         return SimpleVocabulary(items)
 
@@ -55,7 +52,7 @@ class TarifsVocabulary(object):
         return the tarif vocabulary in the db
         """
         items = []
-        blankTerm = SimpleTerm(value=-1, token=-1, title=' ')
+        blankTerm = SimpleTerm(value='-1', token='-1', title=' ')
         items.append(blankTerm)
         for tarif in self.getTarifs(context):
             infinite = tarif['max'] == -1 and u"> " or u""
