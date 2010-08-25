@@ -44,13 +44,15 @@ class BNBSearchHebergement(SearchHebergement):
 
     def filterByPrice(self, results, tarifMin, tarifMax):
         """
-        Price in DB are like '50.00' or '50.00/70.00'
+        Price in DB are like '' or '50.00' or '50.00/70.00'
         This method parses this field and compare values to search criteria
         """
         if tarifMax is None:
             tarifMax = 1e10  #tarif max infini, plus rapide pour les comparaison
         def isRangePricedHeb(heb):
             hebTarifs = heb.heb_tarif_chmbr_avec_dej_2p
+            if not hebTarifs:
+                return False
             if '/' in hebTarifs:
                 hebMin, hebMax = hebTarifs.split('/')
                 hebMin = int(float(hebMin))
@@ -87,8 +89,6 @@ class BNBSearchHebergement(SearchHebergement):
         reservationsTable = wrapper.getMapper('reservation_proprio')
         communeTable = wrapper.getMapper('commune')
         episTable = wrapper.getMapper('link_hebergement_epis')
-        hebergementType = data.get('hebergementType')
-        communesLocalites = data.get('commune')
         tarif = data.get('tarif')
         communeLocalite = data.get('commune')
         classification = data.get('classification')
@@ -106,7 +106,7 @@ class BNBSearchHebergement(SearchHebergement):
         query = query.filter(hebergementTable.heb_site_public == '1')
         query = query.filter(proprioTable.pro_etat == True)
 
-        if communeLocalite and communeLocalite != '-1':
+        if communeLocalite and str(communeLocalite) != '-1':
             relatedCommune = self.getCommuneForLocalite(communeLocalite)
             if relatedCommune:
                 query = query.filter(and_(hebergementTable.heb_com_fk == communeTable.com_pk,
@@ -118,7 +118,7 @@ class BNBSearchHebergement(SearchHebergement):
         hebergementTypes = ['CH', 'MH', 'CHECR']
         hebergementType = self.translateTypes(hebergementTypes)
         query = query.filter(hebergementTable.heb_typeheb_fk.in_(hebergementType))
-        if classification and classification != -1:
+        if classification and str(classification) != '-1':
             query = query.filter(and_(episTable.heb_nombre_epis == classification,
                                       hebergementTable.heb_pk==episTable.heb_pk))
         if capacityMin:
@@ -170,7 +170,7 @@ class BNBSearchHebergement(SearchHebergement):
         query = query.order_by(hebergementTable.heb_nom)
         results = query.all()
 
-        if tarif and tarif != '-1':
+        if tarif and str(tarif) != '-1':
             tarifRange = BNB_TARIFS[tarif]
             tarifMin = int(tarifRange['min'])
             tarifMax = tarifRange['max'] != -1 and int(tarifRange['max']) or None
@@ -184,6 +184,11 @@ class BNBSearchHebergement(SearchHebergement):
             self.form_fields = self.too_much_form_fields
             form.FormBase.resetForm(self)
             self.widgets['capacityMin'].setRenderedValue(capacityMin)
+            self.widgets['fromDate'].setRenderedValue(fromDate)
+            self.widgets['toDate'].setRenderedValue(toDate)
+            self.widgets['commune'].setRenderedValue(communeLocalite)
+            self.widgets['classification'].setRenderedValue(classification)
+            self.widgets['tarif'].setRenderedValue(tarif)
 
             message = utranslate('gites',
                                  "La recherche a renvoy&eacute; ${nbr} r&eacute;sultats. <br /> Il serait utile de l'affiner.",
