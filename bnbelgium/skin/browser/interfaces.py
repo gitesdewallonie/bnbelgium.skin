@@ -40,9 +40,9 @@ class IBNBPortletManager(IPortletManager):
 
 class IMoteurRecherche(Interface):
 
-    def getHebergementByPk(heb_pk):
+    def getHebergementByNameOrPk(reference):
         """
-        Get the url of the hebergement by Pk
+        Get the url of the hebergement by Pk or part of the name
         """
 
     def getCommunes():

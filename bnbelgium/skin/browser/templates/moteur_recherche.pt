@@ -121,7 +121,7 @@
             <br />
             <div id="moteur-ref">
                 <form action=""
-                      tal:attributes="action string:${here/portal_url}/moteur_recherche_view/getHebergementByPk"
+                      tal:attributes="action string:${here/portal_url}/moteur_recherche_view/getHebergementByNameOrPk"
                       method="post">
                   <div id="ref_pk">
                       <label i18n:domain="gites"
@@ -133,9 +133,9 @@
                          Encoder la r&eacute;f&eacute;rence<br />
                          de la chambre d'hôtes</div>
                       <input type="text"
-                             name="heb_pk"
+                             name="reference"
                              value=""
-                             size="4" />
+                             size="20" />
                       <input type="submit"
                              id="form-button-go"
                              value="GO" />
