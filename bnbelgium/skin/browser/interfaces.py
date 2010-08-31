@@ -15,7 +15,7 @@ class IPromoOutil(IViewletManager):
 
 class ISelectorLanguagesLeftColumn(IViewletManager):
     """
-    Viewelet manager qui gere le selecteur de langue 
+    Viewelet manager qui gere le selecteur de langue
     dans top left column
     """
 
@@ -26,15 +26,26 @@ class IBNBelgiumTheme(IDefaultPloneLayer):
     """
 
 
-class IHomePageNews(Interface):
-    """
-    Gestion des viewlets sur la homepage
-    """
-
-
 class IBNBPortletManager(IPortletManager):
     """
     Portlet Manager
+    """
+
+
+class IHomepage(Interface):
+    """
+    Gestion du contenu de la homepage
+    """
+
+    def getText():
+        """
+        Get translated homepage text content
+        """
+
+
+class IHomePageNews(Interface):
+    """
+    Gestion des viewlets sur la homepage
     """
 
 

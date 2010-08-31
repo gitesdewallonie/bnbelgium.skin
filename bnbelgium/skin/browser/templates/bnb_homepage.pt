@@ -4,11 +4,20 @@
       i18n:domain="plone">
 
 <body>
+
     <div metal:fill-slot="main" id="content-news">
+
          <h1>BnBelgium</h1>
+
+         <div tal:content="structure view/getText">
+            texte traduit de la homepage
+         </div>
+
          <div id="promo-outil" i18n:domain="plone">
             <div tal:replace="structure provider:BNBelgium.promoOutil" />
         </div>
+
     </div> 
+
 </body>
 </html>

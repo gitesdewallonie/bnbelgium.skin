@@ -25,6 +25,7 @@
     <browser:page
         for="*"
         name="bnb_homepage"
+        class=".homepage.Homepage"
         permission="zope.Public"
         template="templates/bnb_homepage.pt"
         />
