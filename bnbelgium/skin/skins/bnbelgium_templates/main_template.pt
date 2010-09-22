@@ -30,7 +30,7 @@
     <!-- Internet Explorer fix, forces IE8 into newest possible rendering
          engine even if it's on an intranet. This has to be defined before any
          script/style tags. -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <script
         type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
@@ -46,7 +46,7 @@
         <style type="text/css" media="all" tal:condition="exists: portal/IEFixes.css"
                tal:content="string:@import url($portal_url/IEFixes.css);">
         </style>
-        
+
         <script type="text/javascript"
                 tal:attributes="src string:${portal_url}/iefixes.js">
         </script>
@@ -62,7 +62,7 @@
 
     <!-- Disable IE6 image toolbar -->
     <meta http-equiv="imagetoolbar" content="no" />
-    
+
     <tal:comment replace="nothing"> A slot where you can insert elements in the header from a template </tal:comment>
     <metal:headslot define-slot="head_slot" />
 
@@ -75,11 +75,13 @@
     <tal:comment replace="nothing"> A slot where you can insert javascript in the header from a template </tal:comment>
     <metal:javascriptslot define-slot="javascript_head_slot" />
 
+    <link rel="icon" type="image/gif" href="gitesdewallonie_fav.gif" />
+
   </head>
 
   <body tal:attributes="class string:${here/getSectionFromURL} template-${template/id};
                         dir python:test(isRTL, 'rtl', 'ltr')">
-                        
+
 <div id="main-content">
     <div id="visual-portal-wrapper">
 
@@ -105,7 +107,7 @@
               </div>
             </td>
             <tal:comment replace="nothing"> End of the left column </tal:comment>
-              
+
             <tal:comment replace="nothing"> Start of main content block </tal:comment>
             <td id="portal-column-content"
                 tal:define="tabindex python:Iterator(mainSlot=False)">
@@ -122,13 +124,13 @@
 
                     <span id="contentTopLeft"></span>
                     <span id="contentTopRight"></span>
-                    
+
                     <a name="documentContent"></a>
 
                     <div metal:use-macro="here/global_statusmessage/macros/portal_message">
                       Portal status message
                     </div>
-                    
+
                     <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
 
                     <metal:slot metal:define-slot="body">
@@ -143,9 +145,9 @@
                     </metal:slot>
 
                     <metal:sub metal:define-slot="sub">
-                    
+
                       <div tal:replace="structure provider:plone.belowcontent" />
-                    
+
                     </metal:sub>
 
                     <span id="contentBottomLeft"></span>
@@ -169,7 +171,7 @@
       <tal:comment replace="nothing"> end column wrapper </tal:comment>
 
       <div class="visualClear" id="clear-space-before-footer"><!-- --></div>
-      
+
       <div tal:define="context_state context/@@plone_context_state;
                         portlet_assignable context_state/portlet_assignable"
             tal:condition="python:not sl and not sr and portlet_assignable and checkPermission('Portlets: Manage portlets', context)">
