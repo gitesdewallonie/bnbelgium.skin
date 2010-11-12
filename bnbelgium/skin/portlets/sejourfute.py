@@ -18,6 +18,8 @@ from z3c.sqlalchemy import getSAWrapper
 from DateTime import DateTime
 import random
 
+BNB_TYPES_HEB = ['CH', 'MH', 'CHECR']
+
 
 class ISejourFute(IPortletDataProvider):
     """A portlet which renders a menu
@@ -74,6 +76,8 @@ class Renderer(base.Renderer):
         results = list(results)
         random.shuffle(results)
         for sejour in results:
+            if len(self.getHebergements(sejour.getObject())) == 0:
+                continue
             if "%s/" % sejour.getURL() not in self.request.URL and \
                sejour.getURL() != self.request.URL:
                 return [sejour]
@@ -100,7 +104,7 @@ class Renderer(base.Renderer):
         random.shuffle(results)
         return results[:amount]
 
-    def getHebergements(self):
+    def getHebergements(self, sejour=None):
         """
         Return the concerned hebergements by this Sejour fute
         = hebergements linked to the Maison du tourism +
@@ -108,20 +112,30 @@ class Renderer(base.Renderer):
         """
         wrapper = getSAWrapper('gites_wallons')
         Hebergements = wrapper.getMapper('hebergement')
+        TypeHebergement = wrapper.getMapper('type_heb')
         MaisonTourisme = wrapper.getMapper('maison_tourisme')
         session = wrapper.session
+        if sejour is None:
+            sejour = self.context
 
-        hebList = [int(i) for i in self.context.getHebergementsConcernes()]
-        maisonTourismes = [int(i) for i in self.context.getMaisonsTourisme()]
-        hebergements = session.query(Hebergements).select_by(Hebergements.c.heb_pk.in_(*hebList))
+        hebList = [int(i) for i in sejour.getHebergementsConcernes()]
+        maisonTourismes = [int(i) for i in sejour.getMaisonsTourisme()]
+
+        query = session.query(Hebergements)
+        query = query.filter(Hebergements.heb_pk.in_(hebList))
+        query = query.filter(TypeHebergement.type_heb_pk == Hebergements.heb_typeheb_fk)
+        query = query.filter(TypeHebergement.type_heb_code.in_(BNB_TYPES_HEB))
+        hebergements = query.all()
         for maisonTourisme in maisonTourismes:
             maison = session.query(MaisonTourisme).get(maisonTourisme)
             for commune in maison.commune:
-                hebergements += list(commune.relatedHebergement)
+                if commune.relatedHebergement and \
+                   commune.relatedHebergement[0].type.type_heb_code in BNB_TYPES_HEB:
+                    hebergements += list(commune.relatedHebergement)
         # unique !
         hebergements = list(set(hebergements))
         hebergements.sort(lambda x, y: cmp(x.heb_nom, y.heb_nom))
-        hebergements = [hebergement.__of__(self.context.hebergement) for hebergement in hebergements]
+        hebergements = [hebergement.__of__(sejour.hebergement) for hebergement in hebergements]
         return hebergements
 
     def getAllSejourFute(self):

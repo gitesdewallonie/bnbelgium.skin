@@ -155,7 +155,6 @@ class BNBSearchHebergement(SearchHebergement):
                 self.status = " "
                 return self.template()
 
-            busyHebQuery = session.query(reservationsTable)
             busyHeb = select([reservationsTable.heb_fk],
                              and_(reservationsTable.res_date >= beginDate,
                                   reservationsTable.res_date < endDate)).distinct().execute().fetchall()

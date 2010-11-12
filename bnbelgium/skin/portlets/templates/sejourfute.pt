@@ -4,19 +4,17 @@
 <body>
 <div metal:define-macro="portlet"
      tal:define="results view/getRandomSejourFute;
-                 sejours_link view/getAllSejoursView;">
-
-<span tal:condition="results">
+                 sejours_link view/getAllSejoursView;"
+     tal:condition="results">
 
 <dl class="portlet" id="portlet-sejours-fute">
 
-
-
-    <dt class="portletHeader">
-        <span class="portletTopLeft"></span>
-            <span i18n:translate="sejours_futes">Séjours Futés</span>
-        <span class="portletTopRight"></span>
-    </dt>
+    <div id="bnb-portlet-title">
+        <img src=""
+             tal:attributes="src python:'titre_sejours_futes_%s.png' % request.LANGUAGE"
+             alt="BnB Séjour futé"
+             title="BnB Séjour futé" />
+    </div>
 
     <tal:sejours tal:repeat="obj results">
     <dd class="portletItemSingle"
@@ -31,7 +29,8 @@
             <span class="portletItemDetails"
                   tal:define="vignettes python:view.getRandomVignette(obj.getPath())">
                   <tal:vign tal:repeat="vignette vignettes">
-                    <img src=""
+                    <img class="bnb-porlet-image"
+                         src=""
                          tal:attributes="src string:${vignette/getURL}/image_thumb"
                          class="img-portlet" /><br />
                   </tal:vign>
@@ -42,26 +41,19 @@
 
     <dd class="portletFooter">
         <a href=""
-           class="tile"
            tal:attributes="href sejours_link">
-           <span i18n:translate="all_sejour_fute">Tous</span>
+           <span i18n:translate="all_sejour_fute">Tous</span></a>
            <img src="fleche_grise.png" border="0" />
-        </a>
         <span class="portletBottomLeft"></span>
         <span class="portletBottomRight"></span>
     </dd>
-
 </dl>
-</span>
 <div class="bnbportletFooter">
-           <a href=""
-           class="tile"
+        <a href=""
            tal:attributes="href sejours_link">
-           <span i18n:translate="all_sejour_fute">Tous</span>
+           <span i18n:translate="all_sejour_fute">Tous</span></a>
            <img src="fleche_grise.png" border="0" />
-        </a>
 </div>
-
 </div>
 </body>
 </html>

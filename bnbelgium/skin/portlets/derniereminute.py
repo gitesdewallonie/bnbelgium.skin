@@ -16,9 +16,11 @@ from plone.portlets.interfaces import IPortletDataProvider
 from zope import schema
 from zope.formlib import form
 from z3c.sqlalchemy import getSAWrapper
-from sqlalchemy import desc
+from sqlalchemy import desc, select
 from DateTime import DateTime
 import random
+
+BNB_TYPES_HEB = ['CH', 'MH', 'CHECR']
 
 
 class IDerniereMinute(IPortletDataProvider):
@@ -64,6 +66,22 @@ class Renderer(base.Renderer):
         """
         return True
 
+    def _filterBNBHebergements(self, hebergements):
+        hebBrains = {}
+        for hebergement in hebergements:
+            obj = hebergement.getObject()
+            hebPk = int(obj.hebergementsConcernes[0])
+            hebBrains[hebPk] = hebergement
+        wrapper = getSAWrapper('gites_wallons')
+        Hebergement = wrapper.getMapper('hebergement')
+        TypeHebergement = wrapper.getMapper('type_heb')
+        query = select([Hebergement.heb_pk])
+        query.append_whereclause(Hebergement.heb_pk.in_(hebBrains.keys()))
+        query.append_whereclause(TypeHebergement.type_heb_pk == Hebergement.heb_typeheb_fk)
+        query.append_whereclause(TypeHebergement.type_heb_code.in_(BNB_TYPES_HEB))
+        bnbPks = [r.heb_pk for r in query.execute().fetchall()]
+        return [hebBrains[pk] for pk in bnbPks]
+
     def _getValidDerniereMinute(self):
         """
         Retourne 1 sejour futé (non expiré) au hasard.
@@ -74,6 +92,7 @@ class Renderer(base.Renderer):
                                               'range': 'min'},
                                          review_state='published')
         results = list(results)
+        results = self._filterBNBHebergements(results)
         random.shuffle(results)
         return results
 
