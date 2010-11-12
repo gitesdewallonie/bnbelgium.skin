@@ -15,6 +15,7 @@ from zope.interface import implements
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 from z3c.sqlalchemy import getSAWrapper
+from sqlalchemy import select
 import random
 
 BNB_TYPES_HEB = ['CH', 'MH', 'CHECR']
@@ -98,7 +99,19 @@ class Renderer(base.Renderer):
         contentFilter['review_state'] = 'published'
         results = cat.queryCatalog(contentFilter)
         results = [result.getObject() for result in results]
-        return results
+        bnbHebs = []
+        for result in results:
+            hebPks = result.getHebergements()
+            wrapper = getSAWrapper('gites_wallons')
+            Hebergement = wrapper.getMapper('hebergement')
+            TypeHebergement = wrapper.getMapper('type_heb')
+            query = select([Hebergement.heb_pk])
+            query.append_whereclause(Hebergement.heb_pk.in_(hebPks))
+            query.append_whereclause(TypeHebergement.type_heb_pk == Hebergement.heb_typeheb_fk)
+            query.append_whereclause(TypeHebergement.type_heb_code.in_(BNB_TYPES_HEB))
+            if len(query.execute().fetchall()) > 0:
+                bnbHebs.append(result)
+        return bnbHebs
 
     def getHebergements(self, sejour=None):
         """
