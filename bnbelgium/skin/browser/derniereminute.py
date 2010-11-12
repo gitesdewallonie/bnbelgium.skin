@@ -14,7 +14,7 @@ from sqlalchemy import select, desc
 from DateTime import DateTime
 import random
 
-from gites.core.browser.derniereminuterootfolder import DerniereMinuteRootFolder as RootDMRF
+from gites.core.browser.derniereminuterootfolder import DerniereMinuteRootFolder as CoreDMRF
 from gites.skin.interfaces import IDerniereMinuteRootFolder
 from bnbelgium.skin.browser.interfaces import IBNBelgiumTheme
 
@@ -25,7 +25,7 @@ grok.templatedir('templates')
 grok.layer(IBNBelgiumTheme)
 
 
-class DerniereMinuteRootFolder(RootDMRF):
+class DerniereMinuteRootFolder(CoreDMRF):
     """
     View for the root of the derniere minute folder
     """
