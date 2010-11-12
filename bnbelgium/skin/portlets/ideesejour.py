@@ -17,6 +17,8 @@ from Products.CMFCore.utils import getToolByName
 from z3c.sqlalchemy import getSAWrapper
 import random
 
+BNB_TYPES_HEB = ['CH', 'MH', 'CHECR']
+
 
 class IIdeeSejour(IPortletDataProvider):
     """A portlet which renders a menu
@@ -40,8 +42,6 @@ class Assignment(base.Assignment):
     @property
     def title(self):
         return self._title
-        
-    
 
 
 class Renderer(base.Renderer):
@@ -100,18 +100,26 @@ class Renderer(base.Renderer):
         results = [result.getObject() for result in results]
         return results
 
-    def getHebergements(self):
+    def getHebergements(self, sejour=None):
         """
         return the list of hebergement available in the current idee sejour
         """
         wrapper = getSAWrapper('gites_wallons')
         Hebergements = wrapper.getMapper('hebergement')
+        TypeHebergement = wrapper.getMapper('type_heb')
         session = wrapper.session
-        hebList = [int(i) for i in self.context.getHebergements()]
-        hebergements = session.query(Hebergements).select_by(Hebergements.c.heb_pk.in_(*hebList))
-        hebergements = list(set(hebergements))
+        if sejour is None:
+            sejour = self.context
+
+        hebList = [int(i) for i in sejour.getHebergements()]
+        query = session.query(Hebergements)
+        query = query.filter(Hebergements.heb_pk.in_(hebList))
+        query = query.filter(TypeHebergement.type_heb_pk == Hebergements.heb_typeheb_fk)
+        query = query.filter(TypeHebergement.type_heb_code.in_(BNB_TYPES_HEB))
+
+        hebergements = query.all()
         hebergements.sort(lambda x, y: cmp(x.heb_nom, y.heb_nom))
-        hebergements = [hebergement.__of__(self.context.hebergement) for hebergement in hebergements]
+        hebergements = [hebergement.__of__(sejour.hebergement) for hebergement in hebergements]
         return hebergements
 
     def getRandomIdeeSejour(self):
@@ -124,6 +132,8 @@ class Renderer(base.Renderer):
         results = list(results)
         random.shuffle(results)
         for sejour in results:
+            if len(self.getHebergements(sejour.getObject())) == 0:
+                continue
             if "%s/" % sejour.getURL() not in self.request.URL and \
                sejour.getURL() != self.request.URL:
                 return sejour

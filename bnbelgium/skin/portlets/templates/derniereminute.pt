@@ -3,19 +3,19 @@
       i18n:domain="gites">
 <body>
 <div metal:define-macro="portlet"
-            tal:define="results view/getRandomDerniereMinute;
-                        sejours_link view/getAllDerniereMinuteLink;"
+     tal:define="results view/getRandomDerniereMinute;
+                 sejours_link view/getAllDerniereMinuteLink;"
      tal:condition="results">
 
 <dl class="portlet" id="portlet-sejours-fute">
 
-    <dt class="portletHeader">
-        <span class="portletTopLeft"></span>
-            <span i18n:translate="derniere_minutes">Dernière minute</span>
-            <img src="titre_dernieres-minutes.png" />
-        <span class="portletTopRight"></span>
-    </dt>
-
+    <div id="bnb-portlet-title">
+        <img src=""
+             tal:attributes="src python:'titre_dernieres_minutes_%s.png' % request.LANGUAGE"
+             alt="BnB Dernière minute"
+             title="BnB Dernière minute" />
+    </div>
+    
     <tal:sejours tal:repeat="obj results">
     <dd class="portletItemSingle"
         tal:define="oddrow repeat/obj/odd;
@@ -29,23 +29,26 @@
            class="tile"
            tal:attributes="href hebergement/@@url;
                            title obj/description">
-            <span tal:replace="obj/Title">
+            <span tal:replace="obj/pretty_title_or_id">
              Some Dernieres minutes
             </span>
             <div class="portletItemDetails">
-                <img id="derniere-minute-vignette" src="" 
-                     tal:attributes="src string:${context/portal_url}/photos_heb/${hebergement/getVignette}"/>
-                <span id="capacite">
+                <div>
+                    <img id="derniere-minute-vignette"
+                         class="bnb-porlet-image"
+                         src=""
+                         tal:attributes="src string:${context/portal_url}/photos_heb/${hebergement/getVignette}" />
+                </div>
+                <div id="capacite">
                   <img src="capacite.png"
                        title="Capacité"
                        alt="Capacité" />
                   <span tal:replace="string:${hebergement/heb_cgt_cap_min}/${hebergement/heb_cgt_cap_max}"/>
-                </span>
-                <br/>
-                <span id="derniere-minute-date">
+                </div>
+                <div id="derniere-minute-date">
                    <span tal:replace="start" /> &rarr; <span tal:replace="end" />
-                </span>
-                <span id="promotion-text" 
+                </div>
+                <span id="promotion-text"
                       tal:condition="promotion"><br/><span tal:replace="structure text" /></span>
             </div>
         </a>
@@ -54,25 +57,23 @@
 
     <dd class="portletFooter">
         <a href=""
-           class="tile"
            tal:attributes="href sejours_link">
-           <span i18n:translate="all_sejour_fute">Tous</span>
+           <span i18n:translate="all_sejour_fute">Tous</span></a>
            <img src="fleche_grise.png" 
                 border="0" />
-        </a>
+        
         <span class="portletBottomLeft"></span>
         <span class="portletBottomRight"></span>
     </dd>
 </dl>
 <div class="bnbportletFooter">
-         <a href=""
-           class="tile"
+          <a href=""
            tal:attributes="href sejours_link">
-           <span i18n:translate="all_sejour_fute">Tous</span>
+           <span i18n:translate="all_sejour_fute">Tous</span></a>
            <img src="fleche_grise.png" 
                 border="0" />
-        </a>
 </div>
+
 
 </div>
 </body>

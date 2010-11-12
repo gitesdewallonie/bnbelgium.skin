@@ -8,52 +8,48 @@
   tal:condition="obj">
    <div id="portlet-idee-sejour">
       <dl class="portlet">
-         <dt class="portletHeader"
-             i18n:translate="idees_sejours">
-           <!--titre Idées Séjour-->
-           <img src="titre_idees-sejours.png" />
-         </dt>
 
+         <div id="bnb-portlet-title">
+             <img src=""
+                  tal:attributes="src python:'titre_idees_sejours_%s.png' % request.LANGUAGE"
+                  alt="BnB Idées séjour"
+                  title="BnB Idées séjour" />
+         </div>
          <dd class="portletItemSingle">
-        <a href="#"
-           class="tile"
-           tal:attributes="href obj/getURL;
-                           title obj/Description">
+           <a href="#"
+              class="tile"
+              tal:attributes="href obj/getURL;
+                              title obj/Description">
             <span tal:replace="obj/pretty_title_or_id">
              Some Sejour
             </span>
             <span class="portletItemDetails"
                   tal:define="vignettes python:view.getRandomVignette(obj.getPath())">
                   <tal:vign tal:repeat="vignette vignettes">
-                    <img src="" tal:attributes="src string:${vignette/getURL}/image_thumb"/><br />
+                    <img class="bnb-porlet-image"
+                         src=""
+                         tal:attributes="src string:${vignette/getURL}/image_thumb"/><br />
                   </tal:vign>
             </span>
             </a>
          </dd>
     <dd class="portletFooter">
         <a href=""
-           class="tile"
            tal:attributes="href sejours_link">
-           <span i18n:translate="all_sejour_fute">Tous</span>
+           <span i18n:translate="all_sejour_fute">Tous</span></a>
            <img src="fleche_grise.png" border="0" />
-        </a>
         <span class="portletBottomLeft"></span>
         <span class="portletBottomRight"></span>
     </dd>
 
       </dl>
    </div>
-
 <div class="bnbportletFooter">
         <a href=""
-           class="tile"
            tal:attributes="href sejours_link">
-           <span i18n:translate="all_sejour_fute">Tous</span>
+           <span i18n:translate="all_sejour_fute">Tous</span></a>
            <img src="fleche_grise.png" border="0" />
-        </a>
 </div>
-
-
 </div>
 </body>
 </html>

@@ -9,8 +9,7 @@ from plone.portlets.interfaces import ILocalPortletAssignmentManager
 from Products.CMFCore.utils import getToolByName
 import logging
 
-from gites.skin.portlets import (sejourfute, derniereminute, ideesejour,
-                                 laboutiquefolder)
+from bnbelgium.skin.portlets import (sejourfute, derniereminute, ideesejour)
 from gites.skin.setuphandlers import createTranslationsForObject, \
                                      changeFolderView
 from gites.core.utils import createFolder, createPage, publishObject
@@ -40,12 +39,12 @@ def setupBNBelgium(context):
     logger.debug('Setup BNBelgium skin')
     portal = context.getSite()
     registerPortletManager(portal)
-    createContent(portal)
-    createHebergementFolder(portal.bnb, 'hebergement')
-    setupSubSiteSkin(portal)
-    blockParentPortlets(portal.bnb)
-    clearPortlets(portal.bnb)
-    changeFolderView(portal, portal.bnb, 'bnb_homepage')
+    # createContent(portal)
+    # createHebergementFolder(portal.bnb, 'hebergement')
+    # setupSubSiteSkin(portal)
+    # blockParentPortlets(portal.bnb)
+    # clearPortlets(portal.bnb)
+    # changeFolderView(portal, portal.bnb, 'bnb_homepage')
     setupPromoBoxesPortlets(portal.bnb)
     return
     #manager = getUtility(IPortletManager, name=u'bnbelgium.portlets',
@@ -98,6 +97,13 @@ def setupPromoBoxesPortlets(folder):
     portal = getToolByName(folder, 'portal_url').getPortalObject()
     manager = getUtility(IPortletManager, name='bnbelgium.portlets', context=portal)
     assignments = getMultiAdapter((folder, manager), IPortletAssignmentMapping)
+    if 'sejourfute' in assignments.keys():
+        del assignments['sejourfute']
+    if 'derniereminute' in assignments.keys():
+        del assignments['derniereminute']
+    if 'ideesejour' in assignments.keys():
+        del assignments['ideesejour']
+
     if 'sejourfute' not in assignments.keys():
         assignment = sejourfute.Assignment('Sejour Fute')
         assignments['sejourfute'] = assignment
@@ -107,9 +113,9 @@ def setupPromoBoxesPortlets(folder):
     if 'ideesejour' not in assignments.keys():
         assignment = ideesejour.Assignment('Idee sejour')
         assignments['ideesejour'] = assignment
-    if 'laboutique' not in assignments.keys():
-        assignment = laboutiquefolder.Assignment('La boutique')
-        assignments['laboutique'] = assignment
+    # if 'laboutique' not in assignments.keys():
+    #     assignment = laboutiquefolder.Assignment('La boutique')
+    #     assignments['laboutique'] = assignment
 
 
 def createContent(portal):
