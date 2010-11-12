@@ -10,7 +10,7 @@ $Id: event.py 67630 2006-04-27 00:54:03Z jfroche $
 from five import grok
 from zope.interface import Interface
 from z3c.sqlalchemy import getSAWrapper
-from sqlalchemy import select
+from sqlalchemy import select, desc
 from DateTime import DateTime
 import random
 
@@ -57,4 +57,18 @@ class DerniereMinuteRootFolder(RootDMRF):
         results = list(results)
         results = self._filterBNBHebergements(results)
         random.shuffle(results)
+        return results
+
+    def getLastHebergements(self):
+        wrapper = getSAWrapper('gites_wallons')
+        session = wrapper.session
+        Hebergement = wrapper.getMapper('hebergement')
+        TypeHebergement = wrapper.getMapper('type_heb')
+        query = session.query(Hebergement)
+        query = query.filter(Hebergement.heb_site_public == '1')
+        query = query.filter(TypeHebergement.type_heb_pk == Hebergement.heb_typeheb_fk)
+        query = query.filter(TypeHebergement.type_heb_code.in_(BNB_TYPES_HEB))
+        query = query.order_by(desc(Hebergement.heb_pk))
+        query = query.limit(10)
+        results = [hebergement.__of__(self.context.hebergement) for hebergement in query.all()]
         return results
