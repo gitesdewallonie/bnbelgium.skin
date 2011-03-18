@@ -26,10 +26,14 @@ class CommunesVocabulary(object):
         blankTerm = SimpleTerm(value='-1', token='-1', title=' ')
         items.append(blankTerm)
         for commune in self.getCommunes(context):
-            term = SimpleTerm(value=commune,
-                              token=commune,
-                              title=commune)
-            items.append(term)
+            try:
+                term = SimpleTerm(value=commune,
+                                  token=commune,
+                                  title=commune)
+            except:
+                pass
+            else:
+                items.append(term)
         return SimpleVocabulary(items)
 
 CommunesVocabularyFactory = CommunesVocabulary()
