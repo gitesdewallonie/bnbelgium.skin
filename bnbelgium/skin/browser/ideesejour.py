@@ -11,6 +11,8 @@ from five import grok
 from gites.core.content.interfaces import IIdeeSejour
 from zope.interface import Interface
 from z3c.sqlalchemy import getSAWrapper
+from Products.CMFCore.utils import getToolByName
+
 from bnbelgium.skin.browser.interfaces import IBNBelgiumTheme
 
 BNB_TYPES_HEB = ['CH', 'MH', 'CHECR']
@@ -47,3 +49,14 @@ class IdeeSejour(grok.View):
                         for hebergement in hebergements \
                         if hebergement.type.type_heb_code in BNB_TYPES_HEB]
         return hebergements
+
+    def getVignetteURL(self):
+        """
+        Return vignette URL for an idee sejour
+        """
+        cat = getToolByName(self.context, 'portal_catalog')
+        path = '/'.join(self.context.getPhysicalPath())
+        results = cat.searchResults(portal_type='Vignette',
+                                    path={'query': path})
+        if results:
+            return results[0].getURL()
