@@ -529,6 +529,12 @@ right:auto;
 margin-left:-5.5px;
 }
 
+.portlet-static-allo-chambre-dhotes {
+color:#E4D2E9;
+padding-left:24px;
+text-transform:uppercase;
+}
+
 #derniere-minute-vignette{
 width:140px;
 }
