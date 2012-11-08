@@ -25,9 +25,5 @@ setup(name='bnbelgium.skin',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
-      ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
-      )
+          'collective.editskinswitcher',
+          'z3c.jbot'])
