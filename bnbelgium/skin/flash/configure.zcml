@@ -2,12 +2,12 @@
            xmlns:flash="http://namespaces.zope.org/flash"
            i18n_domain="gites">
 
-     <flash:view
+     <!-- flash:view
         for="bnbelgium.skin.interfaces.IBNBelgiumRootFolder"
         methods="getHebergements getInfosPratiques getInfosTouristiques getMaisonsDuTourisme
                  getHebergementUrl"
         class=".db.FlashBNBView"
-        permission="zope.Public"/>
+        permission="zope.Public"/ -->
 
 </configure>
 
