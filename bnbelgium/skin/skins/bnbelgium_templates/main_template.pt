@@ -44,11 +44,11 @@
     <!-- IE6 workaround CSS/JS  -->
     <tal:iefixstart replace="structure string:&lt;!--[if lte IE 7]&gt;" />
         <style type="text/css" media="all" tal:condition="exists: portal/IEFixes.css"
-               tal:content="string:@import url($portal_url/IEFixes.css);">
+               tal:content="string:@import url(${context/@@plone_portal_state/portal_url}/IEFixes.css);">
         </style>
 
         <script type="text/javascript"
-                tal:attributes="src string:${portal_url}/iefixes.js">
+                tal:attributes="src string:${context/@@plone_portal_state/portal_url}/iefixes.js">
         </script>
     <tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
 
@@ -190,7 +190,7 @@
 
       <div class="visualClear"><!-- --></div>
     </div>
-<div id="kss-spinner"><img tal:attributes="src string:${portal_url}/spinner.gif" alt="" /></div>
+<div id="kss-spinner"><img tal:attributes="src string:${context/@@plone_portal_state/portal_url}/spinner.gif" alt="" /></div>
 </div>
 </body>
 </html>

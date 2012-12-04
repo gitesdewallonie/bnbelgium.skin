@@ -1,7 +1,7 @@
 <div id="header-BNBelgium">
     <div id="bnb-logo">
         <a href=""
-           tal:attributes="href string: ${context/portal_url}"></a>
+           tal:attributes="href string: ${context/@@plone_portal_state/portal_url}"></a>
     </div>
   <!--
   <object type="application/x-shockwave-flash"

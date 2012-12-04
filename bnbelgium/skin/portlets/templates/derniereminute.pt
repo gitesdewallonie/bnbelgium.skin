@@ -37,7 +37,7 @@
                     <img id="derniere-minute-vignette"
                          class="bnb-porlet-image"
                          src=""
-                         tal:attributes="src string:${context/portal_url}/photos_heb/${hebergement/getVignette}" />
+                         tal:attributes="src string:${context/@@plone_portal_state/portal_url}/photos_heb/${hebergement/getVignette}" />
                 </div>
                 <div id="capacite">
                   <img src="capacite.png"
