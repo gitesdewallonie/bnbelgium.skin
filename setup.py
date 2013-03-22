@@ -17,13 +17,11 @@ setup(name='bnbelgium.skin',
       keywords='web zope plone theme',
       author='Affinitic Team',
       author_email='info@affinitic.be',
-      url='http://svn.affinitic.be/plone/gites/bnbelgium.skin',
+      url='https://github.com/gitesdewallonie/bnbelgium.skin',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['bnbelgium'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'setuptools',
-          'collective.editskinswitcher',
-          'z3c.jbot'])
+          'setuptools'])
