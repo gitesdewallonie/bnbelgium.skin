@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 
+import tempfile
 from zope.component import getUtility
 from zope.component import getMultiAdapter
+from zope.app.component.interfaces import ISite
 from plone.portlets.constants import CONTEXT_CATEGORY
 from plone.portlets.interfaces import IPortletManager
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import ILocalPortletAssignmentManager
+from Products.Five.component import enableSite
 from Products.CMFCore.utils import getToolByName
+from Products.LocalFS.LocalFS import manage_addLocalFS
 import logging
 
 from bnbelgium.skin.portlets import (sejourfute, derniereminute, ideesejour)
@@ -18,6 +22,7 @@ from zope.interface import alsoProvides
 from plone.portlets.manager import PortletManager
 
 logger = logging.getLogger('BNBelgium.skin')
+LANGUAGES = ['en', 'nl', 'fr', 'it', 'de']
 
 
 def registerPortletManager(portal):
@@ -38,21 +43,31 @@ def setupBNBelgium(context):
         return
     logger.debug('Setup BNBelgium skin')
     portal = context.getSite()
+    if not ISite.providedBy(portal):
+        enableSite(portal)
     registerPortletManager(portal)
+    setupLanguages(portal)
+    createLocalFS(portal)
     # createContent(portal)
-    # createHebergementFolder(portal.bnb, 'hebergement')
+    createHebergementFolder(portal, 'hebergement')
     # setupSubSiteSkin(portal)
-    # blockParentPortlets(portal.bnb)
-    # clearPortlets(portal.bnb)
-    # changeFolderView(portal, portal.bnb, 'bnb_homepage')
-    setupPromoBoxesPortlets(portal.bnb)
-    return
-    #manager = getUtility(IPortletManager, name=u'bnbelgium.portlets',
-    #                     context=portal)
-    #assignments = getMultiAdapter((portal, manager),
-    #                              IPortletAssignmentMapping)
-    #assignment = login.Assignment(title='logintest')
-    #assignments['login'] = assignment
+    blockParentPortlets(portal)
+    clearPortlets(portal)
+    changeFolderView(portal, portal, 'bnb_homepage')
+    setupPromoBoxesPortlets(portal)
+
+
+def createLocalFS(portal):
+    if 'photos_heb' not in portal.objectIds():
+        manage_addLocalFS(portal, 'photos_heb', 'Photos heb',
+                          tempfile.gettempdir())
+
+
+def setupLanguages(portal):
+    lang = getToolByName(portal, 'portal_languages')
+    lang.supported_langs = LANGUAGES
+    lang.setDefaultLanguage('fr')
+    lang.display_flags = 0
 
 
 def getManager(folder, column):
@@ -120,7 +135,7 @@ def setupPromoBoxesPortlets(folder):
 
 def createContent(portal):
     #Create empty documents and folders
-    bnb = createFolder(portal, 'bnb', "BnBelgium; les chambres d'hôtes en Ardenne et Wallonie", True)
+    bnb = portal
     chambreHote = createPage(bnb, "chambres-dhotes", "Chambres d'hôtes")
     chambreHote.setLanguage('fr')
     chambreHote._at_creation_flag = True
@@ -142,8 +157,8 @@ def setupSubSiteSkin(portal):
     specDomains = ["http://www.bnbelgium.be/plone",
                    "http://bnb2.affinitic.be/plone"]
     for i in editskin_props.getProperty('specific_domains'):
-    	if i not in specDomains:
-	    specDomains.append(i)
+        if i not in specDomains:
+            specDomains.append(i)
     editskin_props.specific_domains = tuple(specDomains)
     editskin_props.edit_skin = "BNBelgium Skin"
 

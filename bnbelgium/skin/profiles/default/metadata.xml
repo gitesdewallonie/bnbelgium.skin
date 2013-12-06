@@ -2,6 +2,7 @@
 <metadata>
   <version>0.1</version>
   <dependencies>
-    <dependency>profile-collective.editskinswitcher:default</dependency>
+    <dependency>profile-Products.LinguaPlone:LinguaPlone</dependency>
+    <dependency>profile-gites.core:default</dependency>
   </dependencies>
 </metadata>
