@@ -13,7 +13,7 @@ background-attachment: fixed;
 }
 
 #main-content{
-width:974px;
+width:1190px;
 margin:auto;
 /*border:1px solid #f00;*/
 }
@@ -36,6 +36,7 @@ background-position:right top;
 width:960px !important;
 height:163px;
 text-align:center;
+margin:auto;
 }
 
 #bnb-logo{
@@ -168,7 +169,6 @@ color:#00c2ff;                   /*#453cd6;*/
 #portal-columns {
 border-collapse:collapse;
 border-spacing:0;
-width:961px !important;
 background-color:transparent;
 }
 
@@ -193,6 +193,7 @@ border-collapse:collapse;
 margin:0 0 2em;
 padding:0 0 0;
 vertical-align:top;
+width: 1100px;
 }
 
 
@@ -209,7 +210,6 @@ background-position:right bottom;
 .documentEditable {
 margin:0 0;
 padding:0 1em 1em !important;
-width:768px;
 }
 
 .documentActions {
@@ -250,6 +250,8 @@ text-align:center;
 }
 #bas-colonne-center{
 background-image:url(hachures_bas_contenu.png);
+background-position: center center;
+background-repeat: no-repeat;
 }
 
 
