@@ -60,3 +60,9 @@ class IdeeSejour(grok.View):
                                     path={'query': path})
         if results:
             return results[0].getURL()
+
+    def getText(self):
+        """
+        Returns raw text
+        """
+        return self.context.getRawText()
