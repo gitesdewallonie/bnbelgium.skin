@@ -28,7 +28,7 @@
                   <tal:vign tal:repeat="vignette vignettes">
                     <img class="bnb-porlet-image"
                          src=""
-                         tal:attributes="src string:${vignette/getURL}/image_thumb"/><br />
+                         tal:attributes="src string:${vignette/getURL}"/><br />
                   </tal:vign>
             </span>
             </a>
