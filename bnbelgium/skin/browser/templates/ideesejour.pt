@@ -8,7 +8,7 @@
       href="" tal:attributes="href view/getVignetteURL" /> 
 
 <div metal:fill-slot="main">
-  <tal:main tal:define="text context/getText;
+  <tal:main tal:define="text view/getText;
                         hebergements view/getHebergements;
                         number python:len(hebergements);">
     <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontenttitle" />
