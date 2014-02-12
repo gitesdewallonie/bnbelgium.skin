@@ -155,6 +155,9 @@
                 </a>
             </div>
          </td>
+         <td align="left" valign="top">
+             <span tal:replace="structure provider:bnbelgium.portlets" />
+         </td>
       </tr>
    </table>
 </div>
