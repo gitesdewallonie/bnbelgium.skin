@@ -31,3 +31,11 @@ class Translate(BrowserView):
         else:
             url = obj.absolute_url()
         return url
+
+    def getLangForAlloCH(self):
+        """
+        """
+        language = self.request.get('LANGUAGE', 'en').lower()
+        if not language in ['fr', 'nl', 'en']:
+            language = 'en'
+        return language

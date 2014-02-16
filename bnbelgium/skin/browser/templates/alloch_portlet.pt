@@ -1,0 +1,19 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="gites">
+<body>
+<div metal:define-macro="portlet"
+     class="portlet-static-allo-chambre-dhotes">
+
+<p><strong><br /></strong></p>
+<p>allo chambre d'hôtes</p>
+<p tal:define="lang context/@@getLangForAlloCH">
+    <a href="" target="_blank"
+       tal:attributes="href string:http://www.allochambredhotes.be?set_language=${lang}">
+        <img class="image-inline image-inline" src="AlloCHQRcode.png" alt="Allo CH QR code" />
+    </a>
+</p>
+
+</div>
+</body>
+</html>

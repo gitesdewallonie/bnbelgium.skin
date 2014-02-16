@@ -34,9 +34,25 @@
 
     <browser:page
         for="*"
+        name="alloch_portlet"
+        permission="zope.Public"
+        template="templates/alloch_portlet.pt"
+        />
+
+    <browser:page
+        for="*"
         name="getTranslatedObjectUrl"
         layer=".interfaces.IBNBelgiumTheme"
         attribute="getTranslatedObjectUrl"
+        class=".translations.Translate"
+        permission="zope.Public"
+        />
+
+    <browser:page
+        for="*"
+        name="getLangForAlloCH"
+        layer=".interfaces.IBNBelgiumTheme"
+        attribute="getLangForAlloCH"
         class=".translations.Translate"
         permission="zope.Public"
         />
