@@ -95,9 +95,8 @@
         <tbody>
           <tr>
             <tal:comment replace="nothing"> Start of the left column </tal:comment>
-            <td id="portal-column-one"
-                metal:define-slot="column_one_slot"
-                tal:condition="sl">
+            <td id="portal-column-one">
+              <span metal:define-slot="column_one_slot">
               <div tal:replace="structure provider:BNBelgium.selectorLanguagesLeftColumn" />
               <div class="visualPadding">
                 <metal:portlets define-slot="portlets_one_slot">
@@ -105,6 +104,7 @@
                 </metal:portlets>
                 &nbsp;
               </div>
+              </span>
             </td>
             <tal:comment replace="nothing"> End of the left column </tal:comment>
 
@@ -162,9 +162,22 @@
             <tal:comment replace="nothing"> End of main content block </tal:comment>
           </tr>
           <tr>
-              <td id="bas-colonne-gauche">
-                  <a href="http://www.gitesdewallonie.be" target="_blank"><img src="logoGDW_web2.png" /></a></td>
-              <td id="bas-colonne-center"><div tal:replace="structure provider:plone.portalfooter" /></td>
+            <!-- <td colspan="2" id="footer-table-container">
+              <table id="footer-table">
+                <tbody>
+                    <tr> -->
+                        <td id="bas-colonne-gauche" width="195px">
+                            <a href="http://www.gitesdewallonie.be" target="_blank"><img src="logoGDW_web2.png" /></a>
+                        </td>
+                        <td id="bas-colonne-center">
+                            <div class="colonne">
+                                <div tal:replace="structure provider:plone.portalfooter" />
+                            </div>
+                        </td>
+                    <!-- </tr>
+                </tbody>
+              </table>
+            </td> -->
           </tr>
         </tbody>
       </table>

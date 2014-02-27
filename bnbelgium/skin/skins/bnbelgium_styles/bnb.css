@@ -203,6 +203,7 @@ vertical-align:top;
 background-color: #ebeaf2;
 font-size:110%;
 padding:1em 1em 2em !important;
+margin-left: 5px;
 background-image:url(lecoq.png);
 background-repeat:no-repeat;
 background-position:right bottom;
@@ -243,18 +244,31 @@ text-align:right;
 
 /*** BAS PAGE ***/
 /* ce n'est pas le footer, mais une ligne de plus à table content*/
+#footer-table-container {
+padding: 0;
+}
+#footer-table {
+width: 100%;
+margin-top: -2px;
+margin-left: -3px;
+}
 #bas-colonne-gauche{
 height:237px;
+width:195px;
+padding:0px;
 background-image:url(degrade_bas_menu.png);
 text-align:center;
-
 }
 #bas-colonne-center{
+padding:0;
+}
+#bas-colonne-center .colonne{
 background-image:url(hachures_bas_contenu.png);
 background-position: center -1px;
 background-repeat: no-repeat;
+margin-left: 5px;
+height:237px;
 }
-
 
 
 /*** HOMEPAGE STYLE ***/
@@ -968,6 +982,7 @@ line-height:1.2em;
 margin-left:auto;
 margin-right:auto;
 padding:0.5em 0 1em;
+padding-top: 100px;
 text-align:center;
 }
 /*** FIN PORTAL FOOTER ***/
