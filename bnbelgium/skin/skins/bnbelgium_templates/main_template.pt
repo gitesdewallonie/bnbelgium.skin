@@ -167,7 +167,10 @@
                 <tbody>
                     <tr> -->
                         <td id="bas-colonne-gauche" width="195px">
-                            <a href="http://www.gitesdewallonie.be" target="_blank"><img src="logo_25_ans.png" /></a>
+                            <div id="logo-gdw-bnb">
+                                <a href="http://www.gitesdewallonie.be"
+                                   target="_blank"></a>
+                            </div>
                         </td>
                         <td id="bas-colonne-center">
                             <div class="colonne">

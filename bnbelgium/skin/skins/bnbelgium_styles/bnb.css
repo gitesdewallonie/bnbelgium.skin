@@ -259,6 +259,19 @@ padding:0px;
 background-image:url(degrade_bas_menu.png);
 text-align:center;
 }
+#logo-gdw-bnb {
+background: url("logo.png") no-repeat scroll center center rgba(255, 255, 255, 1);
+border: 1px solid rgb(255, 255, 255);
+border-radius: 8px;
+margin-left:27px;
+height: 155px;
+width: 150px;
+}
+#logo-gdw-bnb a {
+display: block;
+height: 155px;
+width: 150px;
+}
 #bas-colonne-center{
 padding:0;
 }
