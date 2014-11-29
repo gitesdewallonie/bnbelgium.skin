@@ -75,8 +75,6 @@
     <tal:comment replace="nothing"> A slot where you can insert javascript in the header from a template </tal:comment>
     <metal:javascriptslot define-slot="javascript_head_slot" />
 
-    <link rel="icon" type="image/gif" href="gitesdewallonie_fav.gif" />
-
   </head>
 
   <body tal:attributes="class string:${here/getSectionFromURL} template-${template/id};
