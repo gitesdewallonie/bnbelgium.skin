@@ -145,8 +145,8 @@ class Renderer(base.Renderer):
         results = list(results)
         random.shuffle(results)
         for sejour in results:
-            if len(self.getHebergements(sejour.getObject())) == 0:
-                continue
+            #if len(self.getHebergements(sejour.getObject())) == 0:
+            #    continue
             if "%s/" % sejour.getURL() not in self.request.URL and \
                sejour.getURL() != self.request.URL:
                 return sejour

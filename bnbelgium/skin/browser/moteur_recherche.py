@@ -82,7 +82,8 @@ class BNBMoteurRecherche(BrowserView):
 
         communeTable = wrapper.getMapper('commune')
         proprioTable = wrapper.getMapper('proprio')
-        hebergementTable = wrapper.getMapper('hebergement')
+        from gites.db.content import HebergementBase
+        hebergementTable = HebergementBase
         typeTable = wrapper.getMapper('type_heb')
 
         query = select([communeTable.com_nom])
